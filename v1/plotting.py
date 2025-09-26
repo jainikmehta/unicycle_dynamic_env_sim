@@ -4,7 +4,13 @@ from matplotlib.patches import Circle
 from matplotlib.animation import FuncAnimation
 
 
-def plot_environment(robot, goal, static_obstacles, dynamic_obstacles, predictions=None):
+def plot_environment(robot, goal, static_obstacles, dynamic_obstacles, predictions=None, duration=None):
+    """Plot the environment once.
+
+    If duration (seconds) is provided, the plot will be shown non-blocking for that
+    many seconds and then closed automatically. If duration is None, the plot will
+    block until the window is closed by the user.
+    """
     fig, ax = plt.subplots()
     ax.set_xlim(0, 50)
     ax.set_ylim(0, 50)
@@ -48,5 +54,15 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles, predictio
     plt.xlabel('X (m)')
     plt.ylabel('Y (m)')
     plt.grid()
-    plt.show()
+
+    if duration is None:
+        # Blocking show until user closes the window
+        plt.show()
+    else:
+        # Non-blocking show for `duration` seconds, then close
+        plt.show(block=False)
+        # Small pause to ensure the figure renders before the long pause
+        plt.pause(0.001)
+        plt.pause(duration)
+        plt.close(fig)
 

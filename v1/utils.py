@@ -5,19 +5,26 @@ import matplotlib.pyplot as plt
 
 class grid_cell:
     def __init__(self, x_lim, y_lim, resolution):
-        self.resolution = resolution
-        self.x_lim = x_lim
-        self.y_lim = y_lim
+        self.resolution = resolution # in meters
+        self.x_lim = x_lim # in meters
+        self.y_lim = y_lim # in meters
+        # Calculate the number of grid cells in x and y directions
         self.grid_width = int(x_lim / resolution)
         self.grid_height = int(y_lim / resolution)
         self.num_cells = self.grid_width * self.grid_height
         # Create a 2D array to mark free cells as 0 (True) or occupied as 1 (False)
         self.grid_cells = np.zeros((self.grid_width, self.grid_height), dtype=float)
-        # Mark all the boundary cells as occupied
-        self.grid_cells[0, :] = 1
-        self.grid_cells[-1, :] = 1
-        self.grid_cells[:, 0] = 1
-        self.grid_cells[:, -1] = 1
+        # Mark border cells as occupied to provide a safety margin around the map
+        # Use a border width of 5 cells
+        border_width = 5
+        bw = min(border_width, self.grid_width // 2, self.grid_height // 2)
+        if bw > 0:
+            # Left and right borders
+            self.grid_cells[0:bw, :] = 1
+            self.grid_cells[self.grid_width-bw:self.grid_width, :] = 1
+            # Top and bottom borders
+            self.grid_cells[:, 0:bw] = 1
+            self.grid_cells[:, self.grid_height-bw:self.grid_height] = 1
 
     def update_grid(self, obstacle, obstacle_type = 'c'):
         # Mark the grid cells as 1 which are occupied by the circular obstacle

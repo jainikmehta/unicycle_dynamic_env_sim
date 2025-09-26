@@ -140,12 +140,77 @@ class dynamic_obstacle_class():
         self.predicted_traj.append(self.state)
 
 class static_obstacle_class():
-    def __init__(self):
-        self.x = np.random.uniform(BORDER_BUFFER, X_LIM - BORDER_BUFFER)
-        self.y = np.random.uniform(BORDER_BUFFER, Y_LIM - BORDER_BUFFER)
-        self.state = [self.x, self.y]  # state = [x, y]
+    def __init__(self, grid=None):
+        # Allow grid-aware sampling to avoid overlaps with already placed objects
+        # Static obstacle size in meters
         self.width = np.random.uniform(10.0, 15.0)
         self.height = np.random.uniform(10.0, 15.0)
+        # Convert size to cell counts (at least 1 cell)
+        w_cells = max(1, int(np.ceil(self.width / GRID_RESOLUTION)))
+        h_cells = max(1, int(np.ceil(self.height / GRID_RESOLUTION)))
+
+        if grid is not None:
+            # find all top-left positions where a w_cells x h_cells patch fits and is free
+            placed = False
+            candidates = []
+            max_x_start = grid.grid_width - w_cells
+            max_y_start = grid.grid_height - h_cells
+            buffer_cells = 1  # extra margin so static obstacles don't touch
+            if max_x_start >= 0 and max_y_start >= 0:
+                for xs in range(0, max_x_start + 1):
+                    for ys in range(0, max_y_start + 1):
+                        # compute expanded patch including buffer
+                        bx0 = max(0, xs - buffer_cells)
+                        by0 = max(0, ys - buffer_cells)
+                        bx1 = min(grid.grid_width - 1, xs + w_cells - 1 + buffer_cells)
+                        by1 = min(grid.grid_height - 1, ys + h_cells - 1 + buffer_cells)
+                        if np.all(grid.grid_cells[bx0:bx1+1, by0:by1+1] == 0):
+                            candidates.append((xs, ys))
+
+            if candidates:
+                x_start, y_start = random.choice(candidates)
+                x_end = x_start + w_cells - 1
+                y_end = y_start + h_cells - 1
+                # mark those cells as occupied immediately (only the obstacle area, not buffer)
+                grid.grid_cells[x_start:x_end+1, y_start:y_end+1] = 1
+                # store cell indices on the obstacle and compute center coordinates
+                self.x_start = x_start
+                self.y_start = y_start
+                self.x_end = x_end
+                self.y_end = y_end
+                # compute center in meters
+                cx = (x_start + x_end + 1) * 0.5 * GRID_RESOLUTION
+                cy = (y_start + y_end + 1) * 0.5 * GRID_RESOLUTION
+                self.x = cx
+                self.y = cy
+                self.state = [self.x, self.y]
+                placed = True
+
+            if not placed:
+                # Fallback: choose a random center in buffer and compute cell indices
+                self.x = np.random.uniform(BORDER_BUFFER, X_LIM - BORDER_BUFFER)
+                self.y = np.random.uniform(BORDER_BUFFER, Y_LIM - BORDER_BUFFER)
+                # compute occupied cells and mark them
+                x_start = max(0, int((self.x - self.width / 2) / GRID_RESOLUTION) - 1)
+                x_end = min(grid.grid_width - 1, int((self.x + self.width / 2) / GRID_RESOLUTION) + 1)
+                y_start = max(0, int((self.y - self.height / 2) / GRID_RESOLUTION) - 1)
+                y_end = min(grid.grid_height - 1, int((self.y + self.height / 2) / GRID_RESOLUTION) + 1)
+                grid.grid_cells[x_start:x_end+1, y_start:y_end+1] = 1
+                self.state = [self.x, self.y]
+                self.x_start = x_start
+                self.y_start = y_start
+                self.x_end = x_end
+                self.y_end = y_end
+        else:
+            # No grid given: fallback to a simple random center
+            self.x = np.random.uniform(BORDER_BUFFER, X_LIM - BORDER_BUFFER)
+            self.y = np.random.uniform(BORDER_BUFFER, Y_LIM - BORDER_BUFFER)
+            self.state = [self.x, self.y]
+            # compute cell indices without marking
+            self.x_start = max(0, int((self.x - self.width / 2) / GRID_RESOLUTION) - 1)
+            self.x_end = min(int(X_LIM / GRID_RESOLUTION) - 1, int((self.x + self.width / 2) / GRID_RESOLUTION) + 1)
+            self.y_start = max(0, int((self.y - self.height / 2) / GRID_RESOLUTION) - 1)
+            self.y_end = min(int(Y_LIM / GRID_RESOLUTION) - 1, int((self.y + self.height / 2) / GRID_RESOLUTION) + 1)
 
     def __repr__(self):
         return f"StaticObstacle (x={self.x}, y={self.y}, width={self.width}, height={self.height})"
@@ -178,27 +243,6 @@ def check_collision_cw(object1):
 
 
 if __name__== "__main__":
-    # Initialize grid for only for initial object placement
-    grid = grid_cell(X_LIM, Y_LIM, GRID_RESOLUTION)
-    # Initialize static obstacles at random positions
-    static_obstacles = [static_obstacle_class() for _ in range(L)]
-    for obs in static_obstacles:
-        grid.update_grid(obs, obstacle_type='r')
-
-    # Initialize robot at random position and heading
-    robot = robot_class()
-    grid.update_grid(robot, obstacle_type='c')
-    goal = goal_class()
-    grid.update_grid(goal, obstacle_type='c')
-    
-    # Initialize dynamic obstacles at random positions and headings but not overlapping with robot, goal and static obstacles. Make sure to sample K valid positions.
-    dynamic_obstacles = []
-    while len(dynamic_obstacles) < K:
-        obs = dynamic_obstacle_class(grid)
-        dynamic_obstacles.append(obs)
-        grid.update_grid(obs, obstacle_type='c')
-
-
 # Simulation run
 # Collect data for training per step reward model.
 # Each episode starts with random initialization of robot and obstacles.
@@ -218,36 +262,92 @@ if __name__== "__main__":
 #   - -100 for collision with any obstacle
 #   - -1 for each time step to encourage faster reaching to the goal
 
-if not HEADLESS:
-    plot_environment(robot, goal, static_obstacles, dynamic_obstacles)
 
 
-for episode in range(MAX_EPISODES):
-    for t in range(EPISODE_LENGTH):
-        # Predict obstacle motion
-        obstacle_states = [obs.state for obs in dynamic_obstacles]
-        obstacle_controls = [obs.control_input for obs in dynamic_obstacles]
-        predictions = predict_obstacle_motion(obstacle_states, obstacle_controls, K, N, DT)
 
-        # Here we would call the RL agent to get uncertainty scaling factors
-        # For now, we use a placeholder of ones
-        uncertainty_scaling = np.ones((K, N, 2))
+    for episode in range(MAX_EPISODES):
+        # Initialize grid only for initial object placement
+        grid = grid_cell(X_LIM, Y_LIM, GRID_RESOLUTION)
+        # Place robot and goal first at random free cells, ensuring they are far apart
+        min_separation = 15.0  # meters: minimum distance between robot and goal
+        empty_cells = np.argwhere(grid.grid_cells == 0)
+        if len(empty_cells) == 0:
+            raise RuntimeError('No free cells available to place robot and goal')
 
-        # Here we would call the NMPC controller to get control inputs for the robot
-        # For now, we use a placeholder of zero control inputs
-        control_input = np.array([0.0, 0.0])  # [linear_velocity, angular_velocity]
+        # Sample robot position
+        cell_idx = random.choice(range(len(empty_cells)))
+        cell = empty_cells[cell_idx]
+        rx = (cell[0] + 0.5) * GRID_RESOLUTION
+        ry = (cell[1] + 0.5) * GRID_RESOLUTION
+        rtheta = np.random.uniform(-np.pi, np.pi)
+        robot = robot_class(state = np.array([rx, ry, rtheta]))
+        grid.update_grid(robot, obstacle_type='c')
 
-        # Update robot state
-        robot.update_state(control_input)
+        # Sample goal position ensuring it's sufficiently far from the robot
+        goal_placed = False
+        tries = 0
+        max_goal_tries = 200
+        while not goal_placed and tries < max_goal_tries:
+            tries += 1
+            empty_cells = np.argwhere(grid.grid_cells == 0)
+            if len(empty_cells) == 0:
+                break
+            cell_idx = random.choice(range(len(empty_cells)))
+            cell = empty_cells[cell_idx]
+            gx = (cell[0] + 0.5) * GRID_RESOLUTION
+            gy = (cell[1] + 0.5) * GRID_RESOLUTION
+            if np.linalg.norm(np.array([rx, ry]) - np.array([gx, gy])) >= min_separation:
+                goal = goal_class(state = np.array([gx, gy]))
+                grid.update_grid(goal, obstacle_type='c')
+                goal_placed = True
 
-        # Update dynamic obstacles states
-        for obs in dynamic_obstacles:
-            obs.update_state()
+        if not goal_placed:
+            # last resort: place goal deterministically far (corner opposite) and update grid
+            gx = X_LIM - rx
+            gy = Y_LIM - ry
+            goal = goal_class(state = np.array([gx, gy]))
+            grid.update_grid(goal, obstacle_type='c')
 
-        # Check for collisions
+        # Initialize dynamic obstacles at random positions and headings but not overlapping with robot/goal
+        dynamic_obstacles = []
+        while len(dynamic_obstacles) < K:
+            obs = dynamic_obstacle_class(grid)
+            dynamic_obstacles.append(obs)
+            grid.update_grid(obs, obstacle_type='c')
 
-    else:
-        print(f"Episode {episode}: Completed without collision")
+        # Finally place static obstacles (rectangles) in remaining free space
+        static_obstacles = [static_obstacle_class(grid) for _ in range(L)]
+        
+        if not HEADLESS:
+            # Show environment for 10 seconds then close, then continue to next episode
+            plot_environment(robot, goal, static_obstacles, dynamic_obstacles, duration=5)
+
+        # # Run the episode
+        # for t in range(EPISODE_LENGTH):
+        #     # Predict obstacle motion
+        #     obstacle_states = [obs.state for obs in dynamic_obstacles]
+        #     obstacle_controls = [obs.control_input for obs in dynamic_obstacles]
+        #     predictions = predict_obstacle_motion(obstacle_states, obstacle_controls, K, N, DT)
+
+        #     # Here we would call the RL agent to get uncertainty scaling factors
+        #     # For now, we use a placeholder of ones
+        #     uncertainty_scaling = np.ones((K, N, 2))
+
+        #     # Here we would call the NMPC controller to get control inputs for the robot
+        #     # For now, we use a placeholder of zero control inputs
+        #     control_input = np.array([0.0, 0.0])  # [linear_velocity, angular_velocity]
+
+        #     # Update robot state
+        #     robot.update_state(control_input)
+
+        #     # Update dynamic obstacles states
+        #     for obs in dynamic_obstacles:
+        #         obs.update_state()
+
+        #     # Check for collisions
+
+        # else:
+        #     print(f"Episode {episode}: Completed without collision")
 
 
 
