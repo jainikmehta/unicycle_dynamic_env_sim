@@ -13,7 +13,7 @@ from plotting import plot_environment
 from nmpc_utils import nmpc_solver, D_SAFE
 
 # --- Simulation Parameters ---
-MAX_SIM_STEPS = 200
+MAX_SIM_STEPS = 500
 DT = 0.1
 
 # --- Obstacle Parameters ---

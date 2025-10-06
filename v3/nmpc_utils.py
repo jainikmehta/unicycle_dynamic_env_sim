@@ -6,7 +6,7 @@ DT = 0.1
 N = 20
 Q = np.diag([2.0, 2.0, 0.1])
 R = np.diag([0.1, 0.05])
-SLACK_PENALTY = 1000
+SLACK_PENALTY = 10
 
 # --- Robot & Environment Parameters ---
 ROBOT_RADIUS = 1.0
