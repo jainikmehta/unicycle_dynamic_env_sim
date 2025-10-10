@@ -1,0 +1,1968 @@
+--- Simulation Log ---
+DT: 0.1, N: 20, D_SAFE: 3.0
+NOISY_OBSTACLES: True, SIGMA_BOUND: 3.0
+--------------------
+--- Timestep 0 ---
+Robot: pos=(2.75, 4.67), theta=0.44
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.65, 9.39), measured_pos=(34.61, 9.26), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.67, 39.44), measured_pos=(8.55, 39.40), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(21.31, 39.48), measured_pos=(21.07, 39.41), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.65, 12.41), measured_pos=(43.78, 12.26), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.55, 4.69), measured_pos=(35.45, 4.88), cov_diag=(0.022, 0.022)
+Static Obstacles:
+  ID 0: center=(21.00, 16.50), size=(7.03, 8.26)
+  ID 1: center=(44.00, 41.00), size=(5.59, 9.21)
+  ID 2: center=(27.00, 30.50), size=(9.82, 8.76)
+
+--- Timestep 1 ---
+Robot: pos=(3.02, 4.80), theta=0.38
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.80, 9.28), measured_pos=(34.62, 9.27), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.83, 39.38), measured_pos=(8.70, 39.05), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(21.12, 39.46), measured_pos=(21.34, 39.32), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.80, 12.31), measured_pos=(43.35, 12.43), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.60, 4.87), measured_pos=(35.39, 4.84), cov_diag=(0.022, 0.022)
+
+--- Timestep 2 ---
+Robot: pos=(3.30, 4.91), theta=0.43
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.95, 9.18), measured_pos=(35.00, 9.02), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.00, 39.33), measured_pos=(9.14, 39.01), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(20.93, 39.45), measured_pos=(20.88, 39.29), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.94, 12.22), measured_pos=(43.80, 12.26), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.66, 5.06), measured_pos=(35.52, 4.82), cov_diag=(0.022, 0.022)
+
+--- Timestep 3 ---
+Robot: pos=(3.57, 5.04), theta=0.52
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.09, 9.07), measured_pos=(35.09, 9.00), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.16, 39.27), measured_pos=(9.17, 39.25), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(20.74, 39.43), measured_pos=(20.48, 39.41), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.09, 12.13), measured_pos=(44.52, 12.02), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.71, 5.25), measured_pos=(35.67, 5.05), cov_diag=(0.022, 0.022)
+
+--- Timestep 4 ---
+Robot: pos=(3.83, 5.18), theta=0.46
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.24, 8.96), measured_pos=(35.22, 9.05), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.33, 39.21), measured_pos=(9.50, 39.41), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(20.55, 39.41), measured_pos=(20.57, 39.22), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.24, 12.03), measured_pos=(44.34, 12.28), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.76, 5.43), measured_pos=(35.89, 5.20), cov_diag=(0.022, 0.022)
+
+--- Timestep 5 ---
+Robot: pos=(4.10, 5.32), theta=0.31
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.39, 8.85), measured_pos=(35.37, 8.96), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.50, 39.15), measured_pos=(9.49, 39.17), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(20.36, 39.39), measured_pos=(20.43, 39.22), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.39, 11.94), measured_pos=(44.34, 11.99), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.81, 5.62), measured_pos=(36.01, 5.78), cov_diag=(0.022, 0.022)
+
+--- Timestep 6 ---
+Robot: pos=(4.38, 5.41), theta=0.44
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.54, 8.74), measured_pos=(35.35, 8.56), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.66, 39.10), measured_pos=(9.54, 39.13), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(20.17, 39.38), measured_pos=(20.47, 39.41), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.54, 11.85), measured_pos=(44.54, 11.91), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.87, 5.81), measured_pos=(35.96, 5.88), cov_diag=(0.022, 0.022)
+
+--- Timestep 7 ---
+Robot: pos=(4.66, 5.54), theta=0.44
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.69, 8.64), measured_pos=(35.46, 8.72), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.83, 39.04), measured_pos=(9.80, 38.87), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(19.98, 39.36), measured_pos=(19.90, 39.33), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.68, 11.75), measured_pos=(44.74, 11.62), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.92, 5.99), measured_pos=(35.82, 5.97), cov_diag=(0.022, 0.022)
+
+--- Timestep 8 ---
+Robot: pos=(4.93, 5.66), theta=0.52
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.84, 8.53), measured_pos=(36.06, 8.54), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.00, 38.98), measured_pos=(10.04, 38.81), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(19.79, 39.34), measured_pos=(20.00, 39.31), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.83, 11.66), measured_pos=(44.99, 11.84), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(35.97, 6.18), measured_pos=(36.12, 5.92), cov_diag=(0.022, 0.022)
+
+--- Timestep 9 ---
+Robot: pos=(5.19, 5.81), theta=0.52
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.98, 8.42), measured_pos=(35.92, 8.51), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.16, 38.92), measured_pos=(10.34, 39.04), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(19.60, 39.32), measured_pos=(19.46, 39.42), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.98, 11.57), measured_pos=(45.18, 11.64), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.02, 6.37), measured_pos=(36.07, 6.46), cov_diag=(0.022, 0.022)
+
+--- Timestep 10 ---
+Robot: pos=(5.45, 5.96), theta=0.42
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.13, 8.31), measured_pos=(36.13, 8.14), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.33, 38.87), measured_pos=(10.24, 38.78), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(19.41, 39.30), measured_pos=(19.34, 39.60), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.13, 11.47), measured_pos=(45.20, 11.50), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.07, 6.56), measured_pos=(36.32, 6.44), cov_diag=(0.022, 0.022)
+
+--- Timestep 11 ---
+Robot: pos=(5.72, 6.08), theta=0.49
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.28, 8.20), measured_pos=(36.07, 8.57), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.49, 38.81), measured_pos=(10.25, 38.89), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(19.22, 39.29), measured_pos=(19.06, 39.32), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.28, 11.38), measured_pos=(45.28, 11.23), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.13, 6.74), measured_pos=(35.80, 6.50), cov_diag=(0.022, 0.022)
+
+--- Timestep 12 ---
+Robot: pos=(5.99, 6.22), theta=0.43
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.43, 8.10), measured_pos=(36.11, 8.17), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.66, 38.75), measured_pos=(10.55, 38.76), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(19.03, 39.27), measured_pos=(19.06, 39.22), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.42, 11.29), measured_pos=(45.16, 11.22), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.18, 6.93), measured_pos=(36.22, 6.71), cov_diag=(0.022, 0.022)
+
+--- Timestep 13 ---
+Robot: pos=(6.26, 6.35), theta=0.49
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.58, 7.99), measured_pos=(36.64, 7.73), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.83, 38.69), measured_pos=(10.81, 38.39), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(18.84, 39.25), measured_pos=(18.99, 38.97), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.57, 11.19), measured_pos=(45.60, 11.26), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.23, 7.12), measured_pos=(36.30, 7.19), cov_diag=(0.022, 0.022)
+
+--- Timestep 14 ---
+Robot: pos=(6.52, 6.49), theta=0.41
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.73, 7.88), measured_pos=(36.78, 7.80), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.99, 38.64), measured_pos=(10.82, 38.58), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(18.65, 39.23), measured_pos=(18.51, 39.08), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.72, 11.10), measured_pos=(45.42, 10.78), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.28, 7.30), measured_pos=(35.99, 7.44), cov_diag=(0.022, 0.022)
+
+--- Timestep 15 ---
+Robot: pos=(6.80, 6.61), theta=0.44
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.87, 7.77), measured_pos=(36.91, 7.87), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.16, 38.58), measured_pos=(11.12, 38.68), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(18.46, 39.22), measured_pos=(18.54, 39.11), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.87, 11.01), measured_pos=(45.91, 11.11), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.34, 7.49), measured_pos=(36.07, 7.62), cov_diag=(0.022, 0.022)
+
+--- Timestep 16 ---
+Robot: pos=(7.07, 6.74), theta=0.40
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.02, 7.66), measured_pos=(36.89, 7.65), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.33, 38.52), measured_pos=(11.32, 38.32), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(18.27, 39.20), measured_pos=(18.29, 39.36), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.02, 10.91), measured_pos=(46.07, 10.57), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.39, 7.68), measured_pos=(36.58, 8.07), cov_diag=(0.022, 0.022)
+
+--- Timestep 17 ---
+Robot: pos=(7.35, 6.86), theta=0.52
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.17, 7.56), measured_pos=(37.40, 7.74), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.49, 38.46), measured_pos=(11.51, 38.55), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(18.08, 39.18), measured_pos=(18.02, 39.21), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.16, 10.82), measured_pos=(46.00, 10.72), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.44, 7.86), measured_pos=(36.31, 7.74), cov_diag=(0.022, 0.022)
+
+--- Timestep 18 ---
+Robot: pos=(7.61, 7.01), theta=0.48
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.32, 7.45), measured_pos=(37.32, 7.47), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.66, 38.40), measured_pos=(11.56, 38.54), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.88, 39.16), measured_pos=(17.87, 39.22), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.31, 10.73), measured_pos=(46.45, 10.88), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.49, 8.05), measured_pos=(36.73, 7.84), cov_diag=(0.022, 0.022)
+
+--- Timestep 19 ---
+Robot: pos=(7.87, 7.14), theta=0.48
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.47, 7.34), measured_pos=(37.49, 7.26), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.82, 38.35), measured_pos=(11.68, 38.61), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.69, 39.14), measured_pos=(17.59, 39.01), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.46, 10.64), measured_pos=(46.46, 10.66), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.54, 8.24), measured_pos=(36.75, 8.19), cov_diag=(0.022, 0.022)
+
+--- Timestep 20 ---
+Robot: pos=(8.14, 7.28), theta=0.48
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.62, 7.23), measured_pos=(37.78, 7.28), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.99, 38.29), measured_pos=(11.90, 38.44), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.50, 39.13), measured_pos=(17.82, 39.11), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.61, 10.54), measured_pos=(46.46, 10.61), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.60, 8.42), measured_pos=(36.90, 8.45), cov_diag=(0.022, 0.022)
+
+--- Timestep 21 ---
+Robot: pos=(8.41, 7.42), theta=0.39
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.76, 7.12), measured_pos=(37.72, 7.28), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.16, 38.23), measured_pos=(11.85, 38.35), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.31, 39.11), measured_pos=(17.14, 38.96), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.76, 10.45), measured_pos=(46.81, 10.30), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.65, 8.61), measured_pos=(36.69, 8.53), cov_diag=(0.022, 0.022)
+
+--- Timestep 22 ---
+Robot: pos=(8.68, 7.53), theta=0.46
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.91, 7.01), measured_pos=(37.99, 6.99), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.32, 38.17), measured_pos=(12.18, 38.22), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.12, 39.09), measured_pos=(17.18, 38.98), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.90, 10.36), measured_pos=(46.84, 10.28), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.70, 8.80), measured_pos=(36.61, 8.72), cov_diag=(0.022, 0.022)
+
+--- Timestep 23 ---
+Robot: pos=(8.95, 7.67), theta=0.47
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.06, 6.91), measured_pos=(37.88, 6.81), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.49, 38.12), measured_pos=(12.46, 38.08), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.93, 39.07), measured_pos=(16.91, 38.91), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.05, 10.26), measured_pos=(47.18, 10.56), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.75, 8.98), measured_pos=(36.75, 8.97), cov_diag=(0.022, 0.022)
+
+--- Timestep 24 ---
+Robot: pos=(9.22, 7.80), theta=0.58
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.21, 6.80), measured_pos=(38.17, 6.93), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.65, 38.06), measured_pos=(12.70, 38.43), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.74, 39.05), measured_pos=(16.65, 39.07), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.20, 10.17), measured_pos=(47.41, 10.20), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.81, 9.17), measured_pos=(36.84, 9.28), cov_diag=(0.022, 0.022)
+
+--- Timestep 25 ---
+Robot: pos=(9.47, 7.97), theta=0.53
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.36, 6.69), measured_pos=(38.62, 6.86), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.82, 38.00), measured_pos=(12.77, 38.10), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.55, 39.04), measured_pos=(16.48, 38.88), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.35, 10.08), measured_pos=(47.33, 10.04), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.86, 9.36), measured_pos=(37.10, 9.31), cov_diag=(0.022, 0.022)
+
+--- Timestep 26 ---
+Robot: pos=(9.73, 8.12), theta=0.44
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.51, 6.58), measured_pos=(38.46, 6.53), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.99, 37.94), measured_pos=(12.85, 37.97), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.36, 39.02), measured_pos=(16.59, 39.19), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.50, 9.98), measured_pos=(47.63, 10.16), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.91, 9.54), measured_pos=(37.32, 9.24), cov_diag=(0.022, 0.022)
+
+--- Timestep 27 ---
+Robot: pos=(10.00, 8.24), theta=0.53
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.65, 6.47), measured_pos=(38.58, 6.48), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.15, 37.89), measured_pos=(13.25, 37.84), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.17, 39.00), measured_pos=(16.33, 39.20), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.64, 9.89), measured_pos=(47.60, 10.06), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(36.96, 9.73), measured_pos=(36.83, 9.98), cov_diag=(0.022, 0.022)
+
+--- Timestep 28 ---
+Robot: pos=(10.26, 8.40), theta=0.68
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.80, 6.37), measured_pos=(38.65, 6.61), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.32, 37.83), measured_pos=(13.48, 37.62), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.98, 38.98), measured_pos=(16.15, 39.09), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.79, 9.80), measured_pos=(47.97, 9.87), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.01, 9.92), measured_pos=(37.14, 9.98), cov_diag=(0.022, 0.022)
+
+--- Timestep 29 ---
+Robot: pos=(10.49, 8.59), theta=0.67
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.95, 6.26), measured_pos=(39.01, 6.29), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.49, 37.77), measured_pos=(13.21, 37.98), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.79, 38.97), measured_pos=(15.93, 38.96), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.94, 9.70), measured_pos=(48.22, 9.39), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.07, 10.10), measured_pos=(37.05, 10.13), cov_diag=(0.022, 0.022)
+
+--- Timestep 30 ---
+Robot: pos=(10.73, 8.77), theta=0.64
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.10, 6.15), measured_pos=(39.21, 6.26), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.65, 37.71), measured_pos=(13.63, 37.77), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.60, 38.95), measured_pos=(15.64, 38.87), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.09, 9.61), measured_pos=(48.12, 9.71), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.12, 10.29), measured_pos=(36.90, 10.69), cov_diag=(0.022, 0.022)
+
+--- Timestep 31 ---
+Robot: pos=(10.97, 8.95), theta=0.62
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.25, 6.04), measured_pos=(39.23, 6.05), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.82, 37.65), measured_pos=(13.75, 37.41), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.41, 38.93), measured_pos=(15.51, 39.15), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.24, 9.52), measured_pos=(48.28, 9.52), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.17, 10.48), measured_pos=(37.25, 10.50), cov_diag=(0.022, 0.022)
+
+--- Timestep 32 ---
+Robot: pos=(11.21, 9.13), theta=0.66
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.40, 5.93), measured_pos=(39.32, 5.91), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.98, 37.60), measured_pos=(13.61, 37.68), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.22, 38.91), measured_pos=(15.40, 39.03), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.38, 9.42), measured_pos=(48.60, 9.49), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.22, 10.67), measured_pos=(37.11, 10.83), cov_diag=(0.022, 0.022)
+
+--- Timestep 33 ---
+Robot: pos=(11.45, 9.31), theta=0.73
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.54, 5.83), measured_pos=(39.58, 5.64), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.15, 37.54), measured_pos=(14.20, 37.62), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.03, 38.89), measured_pos=(15.22, 38.78), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.53, 9.33), measured_pos=(48.63, 9.66), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.28, 10.85), measured_pos=(37.61, 10.77), cov_diag=(0.022, 0.022)
+
+--- Timestep 34 ---
+Robot: pos=(11.67, 9.51), theta=0.74
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.69, 5.72), measured_pos=(39.73, 5.71), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.32, 37.48), measured_pos=(14.15, 37.55), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.84, 38.88), measured_pos=(14.77, 38.95), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.68, 9.24), measured_pos=(48.54, 9.45), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.33, 11.04), measured_pos=(37.26, 11.06), cov_diag=(0.022, 0.022)
+
+--- Timestep 35 ---
+Robot: pos=(11.90, 9.71), theta=0.81
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.84, 5.61), measured_pos=(39.87, 5.67), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.48, 37.42), measured_pos=(14.57, 37.23), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.65, 38.86), measured_pos=(14.69, 38.92), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.83, 9.14), measured_pos=(48.74, 8.94), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.38, 11.23), measured_pos=(37.58, 11.11), cov_diag=(0.022, 0.022)
+
+--- Timestep 36 ---
+Robot: pos=(12.10, 9.93), theta=0.86
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.99, 5.50), measured_pos=(40.07, 5.91), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.65, 37.37), measured_pos=(14.76, 37.36), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.46, 38.84), measured_pos=(14.38, 38.99), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.98, 9.05), measured_pos=(48.97, 9.06), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.43, 11.41), measured_pos=(37.32, 11.46), cov_diag=(0.022, 0.022)
+
+--- Timestep 37 ---
+Robot: pos=(12.30, 10.16), theta=0.89
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.14, 5.39), measured_pos=(40.73, 5.53), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.82, 37.31), measured_pos=(14.80, 37.22), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.27, 38.82), measured_pos=(14.28, 38.90), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.98, 9.05), measured_pos=(48.97, 9.06), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.48, 11.60), measured_pos=(37.32, 11.47), cov_diag=(0.022, 0.022)
+
+--- Timestep 38 ---
+Robot: pos=(12.49, 10.39), theta=0.96
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.29, 5.29), measured_pos=(40.57, 5.40), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.98, 37.25), measured_pos=(14.71, 37.16), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.08, 38.81), measured_pos=(13.59, 38.92), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.83, 9.14), measured_pos=(48.99, 8.87), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.54, 11.79), measured_pos=(37.88, 11.81), cov_diag=(0.022, 0.022)
+
+--- Timestep 39 ---
+Robot: pos=(12.66, 10.63), theta=1.05
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.43, 5.18), measured_pos=(40.45, 4.96), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.15, 37.19), measured_pos=(15.11, 37.21), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.89, 38.79), measured_pos=(13.88, 38.87), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.68, 9.24), measured_pos=(48.70, 9.32), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.59, 11.97), measured_pos=(37.36, 12.03), cov_diag=(0.022, 0.022)
+
+--- Timestep 40 ---
+Robot: pos=(12.81, 10.89), theta=1.05
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.58, 5.07), measured_pos=(40.66, 5.25), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.31, 37.14), measured_pos=(15.35, 37.41), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.70, 38.77), measured_pos=(13.56, 38.48), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.53, 9.33), measured_pos=(48.61, 9.19), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.64, 12.16), measured_pos=(37.98, 12.10), cov_diag=(0.022, 0.022)
+
+--- Timestep 41 ---
+Robot: pos=(12.96, 11.15), theta=1.21
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.73, 4.96), measured_pos=(40.72, 4.64), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.48, 37.08), measured_pos=(15.29, 37.01), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.51, 38.75), measured_pos=(13.71, 38.70), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.38, 9.42), measured_pos=(48.51, 9.55), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.69, 12.35), measured_pos=(37.99, 12.35), cov_diag=(0.022, 0.022)
+
+--- Timestep 42 ---
+Robot: pos=(13.06, 11.43), theta=1.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.88, 4.85), measured_pos=(40.87, 4.85), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.65, 37.02), measured_pos=(15.67, 37.00), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.32, 38.73), measured_pos=(13.28, 38.60), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.24, 9.52), measured_pos=(48.50, 9.74), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.75, 12.53), measured_pos=(37.88, 12.75), cov_diag=(0.022, 0.022)
+
+--- Timestep 43 ---
+Robot: pos=(13.18, 11.71), theta=1.29
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.03, 4.75), measured_pos=(40.98, 5.02), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.81, 36.96), measured_pos=(15.87, 36.89), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.13, 38.72), measured_pos=(13.24, 38.36), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(48.09, 9.61), measured_pos=(48.10, 9.46), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.80, 12.72), measured_pos=(37.86, 12.66), cov_diag=(0.022, 0.022)
+
+--- Timestep 44 ---
+Robot: pos=(13.27, 12.00), theta=1.31
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.18, 4.64), measured_pos=(41.09, 4.81), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.98, 36.91), measured_pos=(15.91, 36.86), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.94, 38.70), measured_pos=(12.81, 38.67), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.94, 9.70), measured_pos=(47.77, 9.88), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.85, 12.91), measured_pos=(37.86, 12.83), cov_diag=(0.022, 0.022)
+
+--- Timestep 45 ---
+Robot: pos=(13.35, 12.29), theta=1.42
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.32, 4.53), measured_pos=(41.34, 4.46), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.14, 36.85), measured_pos=(15.95, 37.05), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.75, 38.68), measured_pos=(12.96, 38.71), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.79, 9.80), measured_pos=(47.74, 10.03), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.90, 13.09), measured_pos=(38.11, 13.33), cov_diag=(0.022, 0.022)
+
+--- Timestep 46 ---
+Robot: pos=(13.39, 12.58), theta=1.43
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.47, 4.42), measured_pos=(41.27, 4.15), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.31, 36.79), measured_pos=(16.53, 36.69), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.56, 38.66), measured_pos=(12.48, 38.85), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.64, 9.89), measured_pos=(47.55, 10.07), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(37.95, 13.28), measured_pos=(37.79, 13.27), cov_diag=(0.022, 0.022)
+
+--- Timestep 47 ---
+Robot: pos=(13.43, 12.88), theta=1.52
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.62, 4.31), measured_pos=(41.73, 4.48), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.48, 36.73), measured_pos=(16.30, 36.61), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.37, 38.65), measured_pos=(12.40, 38.65), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.50, 9.98), measured_pos=(47.55, 10.11), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.01, 13.47), measured_pos=(37.95, 13.45), cov_diag=(0.022, 0.022)
+
+--- Timestep 48 ---
+Robot: pos=(13.45, 13.18), theta=1.49
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.77, 4.21), measured_pos=(41.71, 4.51), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.64, 36.67), measured_pos=(16.57, 36.81), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.18, 38.63), measured_pos=(12.16, 38.50), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.35, 10.08), measured_pos=(47.33, 10.15), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.06, 13.65), measured_pos=(38.02, 13.58), cov_diag=(0.022, 0.022)
+
+--- Timestep 49 ---
+Robot: pos=(13.47, 13.48), theta=1.53
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.92, 4.10), measured_pos=(41.79, 4.15), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.81, 36.62), measured_pos=(16.66, 36.53), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.99, 38.61), measured_pos=(11.95, 38.43), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.20, 10.17), measured_pos=(47.09, 10.21), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.11, 13.84), measured_pos=(38.36, 14.10), cov_diag=(0.022, 0.022)
+
+--- Timestep 50 ---
+Robot: pos=(13.47, 13.48), theta=1.65
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.07, 3.99), measured_pos=(42.07, 3.84), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.98, 36.56), measured_pos=(16.68, 36.40), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.80, 38.59), measured_pos=(12.10, 38.51), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(47.05, 10.26), measured_pos=(47.11, 10.50), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.16, 14.03), measured_pos=(38.29, 14.04), cov_diag=(0.022, 0.022)
+
+--- Timestep 51 ---
+Robot: pos=(13.45, 13.78), theta=1.50
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.22, 3.88), measured_pos=(42.23, 3.75), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.14, 36.50), measured_pos=(17.19, 36.27), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.61, 38.57), measured_pos=(11.54, 38.66), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.90, 10.36), measured_pos=(47.11, 10.48), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.22, 14.21), measured_pos=(38.23, 14.21), cov_diag=(0.022, 0.022)
+
+--- Timestep 52 ---
+Robot: pos=(13.47, 14.08), theta=1.53
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.36, 3.77), measured_pos=(42.49, 3.62), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.31, 36.44), measured_pos=(17.55, 36.41), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.42, 38.56), measured_pos=(11.42, 38.65), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.76, 10.45), measured_pos=(46.95, 10.54), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.27, 14.40), measured_pos=(38.16, 14.32), cov_diag=(0.022, 0.022)
+
+--- Timestep 53 ---
+Robot: pos=(13.48, 14.38), theta=1.69
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.51, 3.67), measured_pos=(42.57, 3.62), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.47, 36.39), measured_pos=(17.27, 36.63), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.23, 38.54), measured_pos=(11.31, 38.47), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.61, 10.54), measured_pos=(46.61, 10.33), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.32, 14.59), measured_pos=(38.47, 14.63), cov_diag=(0.022, 0.022)
+
+--- Timestep 54 ---
+Robot: pos=(13.45, 14.68), theta=1.53
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.66, 3.56), measured_pos=(42.83, 3.46), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.64, 36.33), measured_pos=(17.55, 36.28), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.04, 38.52), measured_pos=(11.17, 38.47), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.46, 10.64), measured_pos=(46.68, 10.50), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.37, 14.78), measured_pos=(38.42, 14.93), cov_diag=(0.022, 0.022)
+
+--- Timestep 55 ---
+Robot: pos=(13.46, 14.98), theta=1.52
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.81, 3.45), measured_pos=(42.74, 3.36), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.81, 36.27), measured_pos=(17.68, 36.13), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.85, 38.50), measured_pos=(10.85, 38.34), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.31, 10.73), measured_pos=(46.13, 10.54), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.42, 14.96), measured_pos=(38.38, 15.12), cov_diag=(0.022, 0.022)
+
+--- Timestep 56 ---
+Robot: pos=(13.47, 15.28), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.96, 3.34), measured_pos=(42.70, 3.44), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.97, 36.21), measured_pos=(17.88, 36.43), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.65, 38.48), measured_pos=(10.48, 38.40), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.16, 10.82), measured_pos=(46.37, 10.82), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.48, 15.15), measured_pos=(38.69, 15.25), cov_diag=(0.022, 0.022)
+
+--- Timestep 57 ---
+Robot: pos=(13.48, 15.58), theta=1.55
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.11, 3.23), measured_pos=(43.00, 3.37), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.14, 36.16), measured_pos=(18.18, 36.11), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.46, 38.47), measured_pos=(10.25, 38.38), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(46.02, 10.91), measured_pos=(45.99, 10.81), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.53, 15.34), measured_pos=(38.80, 15.16), cov_diag=(0.022, 0.022)
+
+--- Timestep 58 ---
+Robot: pos=(13.48, 15.67), theta=1.55
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.25, 3.13), measured_pos=(43.25, 3.03), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.31, 36.10), measured_pos=(18.09, 36.26), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.27, 38.45), measured_pos=(10.33, 38.71), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.87, 11.01), measured_pos=(45.80, 10.88), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.58, 15.52), measured_pos=(38.79, 15.41), cov_diag=(0.022, 0.022)
+
+--- Timestep 59 ---
+Robot: pos=(13.49, 15.97), theta=1.59
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.40, 3.02), measured_pos=(43.48, 3.05), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.47, 36.04), measured_pos=(18.71, 36.12), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.08, 38.43), measured_pos=(9.94, 38.58), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.72, 11.10), measured_pos=(45.68, 10.79), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.63, 15.71), measured_pos=(38.61, 15.47), cov_diag=(0.022, 0.022)
+
+--- Timestep 60 ---
+Robot: pos=(13.48, 16.27), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.55, 2.91), measured_pos=(43.56, 2.82), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.64, 35.98), measured_pos=(18.61, 36.11), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.89, 38.41), measured_pos=(9.99, 38.57), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.57, 11.19), measured_pos=(45.47, 11.06), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.69, 15.90), measured_pos=(38.74, 16.11), cov_diag=(0.022, 0.022)
+
+--- Timestep 61 ---
+Robot: pos=(13.48, 16.27), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.70, 2.80), measured_pos=(43.71, 2.50), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.80, 35.93), measured_pos=(18.98, 36.14), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.70, 38.40), measured_pos=(9.70, 38.56), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.42, 11.29), measured_pos=(45.28, 11.12), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.74, 16.08), measured_pos=(39.38, 15.95), cov_diag=(0.022, 0.022)
+
+--- Timestep 62 ---
+Robot: pos=(13.48, 16.27), theta=1.55
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.85, 2.69), measured_pos=(43.94, 2.35), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.97, 35.87), measured_pos=(18.72, 35.74), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.51, 38.38), measured_pos=(9.48, 38.55), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.28, 11.38), measured_pos=(45.24, 11.25), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.79, 16.27), measured_pos=(38.41, 16.15), cov_diag=(0.022, 0.022)
+
+--- Timestep 63 ---
+Robot: pos=(13.48, 16.57), theta=1.58
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.00, 2.58), measured_pos=(44.10, 2.59), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.14, 35.81), measured_pos=(19.02, 35.88), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.32, 38.36), measured_pos=(9.30, 38.34), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(45.13, 11.47), measured_pos=(45.04, 11.26), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.84, 16.46), measured_pos=(38.96, 16.40), cov_diag=(0.022, 0.022)
+
+--- Timestep 64 ---
+Robot: pos=(13.48, 16.87), theta=1.72
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.14, 2.48), measured_pos=(44.42, 2.69), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.30, 35.75), measured_pos=(19.46, 35.78), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.13, 38.34), measured_pos=(9.41, 38.37), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.98, 11.57), measured_pos=(45.00, 11.80), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.89, 16.64), measured_pos=(38.99, 16.73), cov_diag=(0.022, 0.022)
+
+--- Timestep 65 ---
+Robot: pos=(13.48, 16.87), theta=1.70
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.29, 2.37), measured_pos=(44.10, 2.30), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.47, 35.69), measured_pos=(19.57, 35.61), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.94, 38.32), measured_pos=(8.78, 38.35), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.83, 11.66), measured_pos=(44.80, 11.89), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(38.95, 16.83), measured_pos=(38.79, 16.74), cov_diag=(0.022, 0.022)
+
+--- Timestep 66 ---
+Robot: pos=(13.44, 17.17), theta=1.54
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.44, 2.26), measured_pos=(44.72, 2.40), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.63, 35.64), measured_pos=(19.58, 35.60), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.75, 38.31), measured_pos=(8.41, 38.43), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.68, 11.75), measured_pos=(44.57, 11.67), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.00, 17.02), measured_pos=(38.97, 17.02), cov_diag=(0.022, 0.022)
+
+--- Timestep 67 ---
+Robot: pos=(13.44, 17.17), theta=1.50
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.59, 2.15), measured_pos=(44.79, 1.87), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.80, 35.58), measured_pos=(19.77, 35.64), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.56, 38.29), measured_pos=(8.68, 38.44), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.54, 11.85), measured_pos=(44.40, 11.91), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.05, 17.20), measured_pos=(39.12, 17.19), cov_diag=(0.022, 0.022)
+
+--- Timestep 68 ---
+Robot: pos=(13.46, 17.47), theta=1.57
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.74, 2.04), measured_pos=(44.97, 2.16), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.97, 35.52), measured_pos=(19.73, 35.42), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.37, 38.27), measured_pos=(8.46, 38.23), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.39, 11.94), measured_pos=(44.47, 11.82), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.10, 17.39), measured_pos=(39.11, 17.16), cov_diag=(0.022, 0.022)
+
+--- Timestep 69 ---
+Robot: pos=(13.46, 17.77), theta=1.59
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.89, 1.94), measured_pos=(45.03, 1.91), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.13, 35.46), measured_pos=(20.00, 35.39), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.18, 38.25), measured_pos=(8.06, 38.31), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.24, 12.03), measured_pos=(44.19, 12.21), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.15, 17.58), measured_pos=(39.28, 17.54), cov_diag=(0.022, 0.022)
+
+--- Timestep 70 ---
+Robot: pos=(13.46, 18.07), theta=1.57
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.03, 1.83), measured_pos=(44.79, 1.89), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.30, 35.41), measured_pos=(20.44, 35.36), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.99, 38.24), measured_pos=(8.13, 38.17), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(44.09, 12.13), measured_pos=(44.18, 12.29), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.21, 17.76), measured_pos=(39.00, 17.76), cov_diag=(0.022, 0.022)
+
+--- Timestep 71 ---
+Robot: pos=(13.46, 18.37), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.18, 1.72), measured_pos=(44.99, 1.79), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.47, 35.35), measured_pos=(20.70, 35.16), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.80, 38.22), measured_pos=(8.01, 38.10), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.94, 12.22), measured_pos=(44.08, 12.17), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.26, 17.95), measured_pos=(38.98, 18.11), cov_diag=(0.022, 0.022)
+
+--- Timestep 72 ---
+Robot: pos=(13.46, 18.67), theta=1.55
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.33, 1.61), measured_pos=(45.39, 1.55), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.63, 35.29), measured_pos=(20.63, 34.98), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.61, 38.20), measured_pos=(7.65, 38.28), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.80, 12.31), measured_pos=(43.55, 12.47), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.31, 18.14), measured_pos=(39.48, 18.22), cov_diag=(0.022, 0.022)
+
+--- Timestep 73 ---
+Robot: pos=(13.47, 18.97), theta=1.58
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.48, 1.50), measured_pos=(45.51, 1.72), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.80, 35.23), measured_pos=(20.70, 35.45), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.42, 38.18), measured_pos=(7.59, 38.19), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.65, 12.41), measured_pos=(43.81, 12.28), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.36, 18.32), measured_pos=(39.43, 18.49), cov_diag=(0.022, 0.022)
+
+--- Timestep 74 ---
+Robot: pos=(13.47, 19.27), theta=1.55
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.63, 1.40), measured_pos=(45.71, 1.38), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.96, 35.18), measured_pos=(20.91, 35.10), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.23, 38.16), measured_pos=(7.22, 38.39), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.50, 12.50), measured_pos=(43.86, 12.33), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.42, 18.51), measured_pos=(39.69, 18.43), cov_diag=(0.022, 0.022)
+
+--- Timestep 75 ---
+Robot: pos=(13.48, 19.57), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.78, 1.29), measured_pos=(45.72, 1.39), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.96, 35.18), measured_pos=(20.91, 35.10), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.04, 38.15), measured_pos=(6.89, 38.10), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.35, 12.59), measured_pos=(43.12, 12.60), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.47, 18.70), measured_pos=(39.54, 18.59), cov_diag=(0.022, 0.022)
+
+--- Timestep 76 ---
+Robot: pos=(13.48, 19.57), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.92, 1.18), measured_pos=(45.79, 1.07), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.80, 35.23), measured_pos=(20.62, 35.06), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.85, 38.13), measured_pos=(6.81, 38.07), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.20, 12.69), measured_pos=(43.32, 12.73), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.52, 18.89), measured_pos=(39.50, 19.07), cov_diag=(0.022, 0.022)
+
+--- Timestep 77 ---
+Robot: pos=(13.48, 19.87), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(46.07, 1.07), measured_pos=(46.22, 1.17), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.63, 35.29), measured_pos=(20.54, 35.43), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.66, 38.11), measured_pos=(6.67, 37.94), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(43.06, 12.78), measured_pos=(43.11, 12.71), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.57, 19.07), measured_pos=(40.00, 19.04), cov_diag=(0.022, 0.022)
+
+--- Timestep 78 ---
+Robot: pos=(13.48, 20.17), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(46.07, 1.07), measured_pos=(46.22, 1.17), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.47, 35.35), measured_pos=(20.53, 35.55), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.47, 38.09), measured_pos=(6.47, 38.25), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(42.91, 12.87), measured_pos=(43.25, 12.73), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.62, 19.26), measured_pos=(39.60, 19.18), cov_diag=(0.022, 0.022)
+
+--- Timestep 79 ---
+Robot: pos=(13.49, 20.47), theta=1.56
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.92, 1.18), measured_pos=(45.95, 1.18), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.30, 35.41), measured_pos=(20.26, 35.44), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.28, 38.08), measured_pos=(6.35, 38.30), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(42.76, 12.97), measured_pos=(42.46, 12.67), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.68, 19.45), measured_pos=(39.71, 19.63), cov_diag=(0.022, 0.022)
+
+--- Timestep 80 ---
+Robot: pos=(13.49, 20.77), theta=1.50
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.78, 1.29), measured_pos=(45.93, 1.34), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(20.13, 35.46), measured_pos=(20.18, 35.32), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.09, 38.06), measured_pos=(5.91, 38.04), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(42.61, 13.06), measured_pos=(42.44, 12.84), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.73, 19.63), measured_pos=(39.68, 19.80), cov_diag=(0.022, 0.022)
+
+--- Timestep 81 ---
+Robot: pos=(13.51, 21.07), theta=1.42
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.63, 1.40), measured_pos=(45.63, 1.35), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.97, 35.52), measured_pos=(19.86, 35.25), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.90, 38.04), measured_pos=(6.00, 37.77), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(42.46, 13.15), measured_pos=(42.43, 13.20), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.78, 19.82), measured_pos=(39.88, 19.87), cov_diag=(0.022, 0.022)
+
+--- Timestep 82 ---
+Robot: pos=(13.56, 21.36), theta=1.35
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.48, 1.50), measured_pos=(45.66, 1.32), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.80, 35.58), measured_pos=(20.05, 35.78), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.71, 38.02), measured_pos=(5.58, 37.94), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(42.32, 13.25), measured_pos=(42.20, 13.06), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.83, 20.01), measured_pos=(39.70, 20.12), cov_diag=(0.022, 0.022)
+
+--- Timestep 83 ---
+Robot: pos=(13.62, 21.66), theta=1.27
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.33, 1.61), measured_pos=(45.45, 1.68), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.63, 35.64), measured_pos=(19.64, 35.31), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.52, 38.00), measured_pos=(5.49, 37.80), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(42.17, 13.34), measured_pos=(42.04, 13.52), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.89, 20.19), measured_pos=(39.45, 20.16), cov_diag=(0.022, 0.022)
+
+--- Timestep 84 ---
+Robot: pos=(13.71, 21.94), theta=1.20
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.18, 1.72), measured_pos=(45.11, 1.76), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.47, 35.69), measured_pos=(19.62, 35.62), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.33, 37.99), measured_pos=(5.30, 37.88), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(42.02, 13.43), measured_pos=(42.08, 13.20), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.94, 20.38), measured_pos=(40.12, 20.37), cov_diag=(0.022, 0.022)
+
+--- Timestep 85 ---
+Robot: pos=(13.82, 22.22), theta=1.12
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(45.03, 1.83), measured_pos=(45.13, 1.74), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.30, 35.75), measured_pos=(19.00, 35.94), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.14, 37.97), measured_pos=(5.07, 38.03), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(41.87, 13.53), measured_pos=(41.70, 13.44), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(39.99, 20.57), measured_pos=(39.87, 20.59), cov_diag=(0.022, 0.022)
+
+--- Timestep 86 ---
+Robot: pos=(13.95, 22.49), theta=1.05
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.89, 1.94), measured_pos=(45.10, 2.10), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(19.14, 35.81), measured_pos=(19.05, 35.63), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.95, 37.95), measured_pos=(5.11, 37.83), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(41.72, 13.62), measured_pos=(41.71, 13.55), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.04, 20.75), measured_pos=(40.04, 20.64), cov_diag=(0.022, 0.022)
+
+--- Timestep 87 ---
+Robot: pos=(14.10, 22.75), theta=1.05
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.74, 2.04), measured_pos=(44.90, 2.12), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.97, 35.87), measured_pos=(18.86, 35.73), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.76, 37.93), measured_pos=(4.69, 38.16), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(41.58, 13.71), measured_pos=(41.67, 13.84), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.09, 20.94), measured_pos=(40.04, 20.87), cov_diag=(0.022, 0.022)
+
+--- Timestep 88 ---
+Robot: pos=(14.25, 23.01), theta=0.98
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.59, 2.15), measured_pos=(44.77, 2.22), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.80, 35.93), measured_pos=(18.63, 35.93), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.57, 37.91), measured_pos=(4.43, 37.67), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(41.43, 13.81), measured_pos=(41.57, 13.76), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.15, 21.13), measured_pos=(39.89, 21.10), cov_diag=(0.022, 0.022)
+
+--- Timestep 89 ---
+Robot: pos=(14.42, 23.26), theta=1.02
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.44, 2.26), measured_pos=(44.42, 2.34), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.64, 35.98), measured_pos=(18.47, 35.95), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.38, 37.90), measured_pos=(4.53, 37.79), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(41.28, 13.90), measured_pos=(41.27, 13.76), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.20, 21.31), measured_pos=(40.00, 21.24), cov_diag=(0.022, 0.022)
+
+--- Timestep 90 ---
+Robot: pos=(14.57, 23.52), theta=0.98
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.29, 2.37), measured_pos=(44.33, 2.29), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.47, 36.04), measured_pos=(18.32, 35.87), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.19, 37.88), measured_pos=(4.23, 37.77), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(41.13, 13.99), measured_pos=(41.27, 14.04), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.25, 21.50), measured_pos=(40.19, 21.54), cov_diag=(0.022, 0.022)
+
+--- Timestep 91 ---
+Robot: pos=(14.74, 23.77), theta=1.14
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.14, 2.48), measured_pos=(44.15, 2.52), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.31, 36.10), measured_pos=(18.38, 36.06), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.00, 37.86), measured_pos=(4.04, 38.07), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(40.98, 14.09), measured_pos=(41.37, 13.98), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.30, 21.69), measured_pos=(40.45, 21.77), cov_diag=(0.022, 0.022)
+
+--- Timestep 92 ---
+Robot: pos=(14.86, 24.04), theta=1.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(44.00, 2.58), measured_pos=(44.02, 2.48), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(18.14, 36.16), measured_pos=(17.92, 35.95), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.81, 37.84), measured_pos=(3.60, 38.08), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(40.84, 14.18), measured_pos=(40.87, 14.07), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.36, 21.87), measured_pos=(40.23, 21.65), cov_diag=(0.022, 0.022)
+
+--- Timestep 93 ---
+Robot: pos=(14.98, 24.32), theta=1.10
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.85, 2.69), measured_pos=(44.04, 2.54), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.97, 36.21), measured_pos=(17.93, 35.87), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.61, 37.83), measured_pos=(3.79, 37.68), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(40.69, 14.27), measured_pos=(40.64, 14.24), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.41, 22.06), measured_pos=(40.37, 22.26), cov_diag=(0.022, 0.022)
+
+--- Timestep 94 ---
+Robot: pos=(15.12, 24.58), theta=1.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.70, 2.80), measured_pos=(43.65, 3.05), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.81, 36.27), measured_pos=(17.85, 36.32), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.42, 37.81), measured_pos=(3.47, 37.48), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(40.54, 14.36), measured_pos=(40.56, 14.37), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.46, 22.25), measured_pos=(40.43, 22.20), cov_diag=(0.022, 0.022)
+
+--- Timestep 95 ---
+Robot: pos=(15.23, 24.86), theta=1.11
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.55, 2.91), measured_pos=(43.66, 2.93), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.64, 36.33), measured_pos=(17.65, 36.39), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.23, 37.79), measured_pos=(3.44, 37.93), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(40.39, 14.46), measured_pos=(40.32, 14.57), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.51, 22.43), measured_pos=(40.44, 22.57), cov_diag=(0.022, 0.022)
+
+--- Timestep 96 ---
+Robot: pos=(15.37, 25.13), theta=1.19
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.40, 3.02), measured_pos=(43.32, 3.02), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.47, 36.39), measured_pos=(17.70, 36.60), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.04, 37.77), measured_pos=(2.88, 37.84), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(40.24, 14.55), measured_pos=(40.23, 14.43), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.56, 22.62), measured_pos=(40.67, 22.51), cov_diag=(0.022, 0.022)
+
+--- Timestep 97 ---
+Robot: pos=(15.48, 25.41), theta=1.12
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.25, 3.13), measured_pos=(43.70, 3.09), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.31, 36.44), measured_pos=(17.38, 36.33), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.85, 37.75), measured_pos=(2.93, 37.69), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(40.10, 14.64), measured_pos=(39.92, 14.54), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.62, 22.81), measured_pos=(40.48, 23.03), cov_diag=(0.022, 0.022)
+
+--- Timestep 98 ---
+Robot: pos=(15.61, 25.68), theta=1.14
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(43.11, 3.23), measured_pos=(43.12, 3.45), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(17.14, 36.50), measured_pos=(17.41, 36.43), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.66, 37.74), measured_pos=(2.66, 37.67), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(39.95, 14.74), measured_pos=(39.73, 14.56), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.67, 23.00), measured_pos=(40.81, 22.89), cov_diag=(0.022, 0.022)
+
+--- Timestep 99 ---
+Robot: pos=(15.73, 25.95), theta=1.24
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.96, 3.34), measured_pos=(42.98, 3.41), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.98, 36.56), measured_pos=(16.98, 36.60), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.47, 37.72), measured_pos=(2.60, 37.97), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(39.80, 14.83), measured_pos=(39.60, 14.87), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.72, 23.18), measured_pos=(40.84, 23.28), cov_diag=(0.022, 0.022)
+
+--- Timestep 100 ---
+Robot: pos=(15.83, 26.23), theta=1.24
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.81, 3.45), measured_pos=(42.72, 3.56), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.81, 36.62), measured_pos=(16.59, 36.44), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.28, 37.70), measured_pos=(2.12, 37.54), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(39.65, 14.92), measured_pos=(39.62, 14.78), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.77, 23.37), measured_pos=(40.66, 23.50), cov_diag=(0.022, 0.022)
+
+--- Timestep 101 ---
+Robot: pos=(15.93, 26.52), theta=1.22
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.66, 3.56), measured_pos=(42.61, 3.69), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.64, 36.67), measured_pos=(16.86, 36.82), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.09, 37.68), measured_pos=(1.91, 37.96), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(39.50, 15.02), measured_pos=(39.17, 15.15), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.83, 23.56), measured_pos=(40.58, 23.42), cov_diag=(0.022, 0.022)
+
+--- Timestep 102 ---
+Robot: pos=(16.03, 26.80), theta=1.29
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.51, 3.67), measured_pos=(42.51, 3.62), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.48, 36.73), measured_pos=(16.60, 36.66), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.90, 37.67), measured_pos=(1.93, 37.63), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(39.36, 15.11), measured_pos=(39.24, 15.21), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.88, 23.74), measured_pos=(40.81, 23.83), cov_diag=(0.022, 0.022)
+
+--- Timestep 103 ---
+Robot: pos=(16.11, 27.09), theta=1.37
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.36, 3.77), measured_pos=(42.46, 3.42), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.31, 36.79), measured_pos=(16.42, 36.97), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.71, 37.65), measured_pos=(1.78, 37.88), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(39.21, 15.20), measured_pos=(39.21, 15.28), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.93, 23.93), measured_pos=(40.79, 23.88), cov_diag=(0.022, 0.022)
+
+--- Timestep 104 ---
+Robot: pos=(16.17, 27.38), theta=1.53
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.22, 3.88), measured_pos=(42.13, 3.95), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(16.14, 36.85), measured_pos=(16.24, 36.89), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.52, 37.63), measured_pos=(1.37, 37.85), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(39.06, 15.30), measured_pos=(39.13, 15.38), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(40.98, 24.12), measured_pos=(41.12, 24.12), cov_diag=(0.022, 0.022)
+
+--- Timestep 105 ---
+Robot: pos=(16.19, 27.68), theta=1.37
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(42.07, 3.99), measured_pos=(42.21, 3.83), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.98, 36.91), measured_pos=(16.22, 36.98), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.33, 37.61), measured_pos=(1.38, 37.53), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(38.91, 15.39), measured_pos=(38.57, 15.17), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.03, 24.30), measured_pos=(41.28, 24.44), cov_diag=(0.022, 0.022)
+
+--- Timestep 106 ---
+Robot: pos=(16.24, 27.98), theta=1.39
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.92, 4.10), measured_pos=(41.93, 4.17), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.81, 36.96), measured_pos=(15.61, 36.99), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.14, 37.59), measured_pos=(1.26, 37.68), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(38.76, 15.48), measured_pos=(38.70, 15.59), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.09, 24.49), measured_pos=(41.21, 24.62), cov_diag=(0.022, 0.022)
+
+--- Timestep 107 ---
+Robot: pos=(16.30, 28.27), theta=1.38
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.77, 4.21), measured_pos=(41.75, 4.36), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.65, 37.02), measured_pos=(15.41, 36.80), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.14, 37.59), measured_pos=(1.26, 37.68), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(38.62, 15.58), measured_pos=(38.54, 15.51), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.14, 24.68), measured_pos=(41.17, 24.75), cov_diag=(0.022, 0.022)
+
+--- Timestep 108 ---
+Robot: pos=(16.36, 28.57), theta=1.44
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.62, 4.31), measured_pos=(41.71, 4.25), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.48, 37.08), measured_pos=(15.47, 37.09), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.33, 37.61), measured_pos=(1.45, 37.68), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(38.47, 15.67), measured_pos=(38.48, 15.44), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.19, 24.86), measured_pos=(41.28, 24.57), cov_diag=(0.022, 0.022)
+
+--- Timestep 109 ---
+Robot: pos=(16.39, 28.86), theta=1.34
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.47, 4.42), measured_pos=(41.73, 4.40), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.31, 37.14), measured_pos=(15.56, 37.01), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.52, 37.63), measured_pos=(1.36, 37.60), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(38.32, 15.76), measured_pos=(38.50, 15.83), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.24, 25.05), measured_pos=(41.24, 24.94), cov_diag=(0.022, 0.022)
+
+--- Timestep 110 ---
+Robot: pos=(16.46, 29.16), theta=1.43
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.32, 4.53), measured_pos=(41.40, 4.40), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(15.15, 37.19), measured_pos=(15.01, 37.24), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.71, 37.65), measured_pos=(1.80, 37.68), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(38.17, 15.86), measured_pos=(38.12, 15.89), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.30, 25.24), measured_pos=(41.19, 25.16), cov_diag=(0.022, 0.022)
+
+--- Timestep 111 ---
+Robot: pos=(16.51, 29.45), theta=1.59
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.18, 4.64), measured_pos=(41.15, 4.64), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.98, 37.25), measured_pos=(15.16, 37.38), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(1.90, 37.67), measured_pos=(2.08, 37.71), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(38.02, 15.95), measured_pos=(38.21, 15.89), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.35, 25.42), measured_pos=(41.25, 25.36), cov_diag=(0.022, 0.022)
+
+--- Timestep 112 ---
+Robot: pos=(16.50, 29.75), theta=1.50
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(41.03, 4.75), measured_pos=(41.12, 4.80), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.82, 37.31), measured_pos=(14.78, 37.53), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.09, 37.68), measured_pos=(2.03, 37.67), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(37.88, 16.04), measured_pos=(37.91, 16.33), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.40, 25.61), measured_pos=(41.35, 25.48), cov_diag=(0.022, 0.022)
+
+--- Timestep 113 ---
+Robot: pos=(16.52, 30.05), theta=1.50
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.88, 4.85), measured_pos=(40.64, 4.55), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.65, 37.37), measured_pos=(14.69, 37.50), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.28, 37.70), measured_pos=(2.60, 37.59), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(37.73, 16.14), measured_pos=(37.76, 16.32), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.45, 25.80), measured_pos=(41.35, 25.74), cov_diag=(0.022, 0.022)
+
+--- Timestep 114 ---
+Robot: pos=(16.54, 30.35), theta=1.45
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.73, 4.96), measured_pos=(40.47, 5.10), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.48, 37.42), measured_pos=(14.39, 37.37), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.47, 37.72), measured_pos=(2.53, 37.68), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(37.58, 16.23), measured_pos=(37.76, 16.53), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.50, 25.98), measured_pos=(41.55, 25.69), cov_diag=(0.022, 0.022)
+
+--- Timestep 115 ---
+Robot: pos=(16.58, 30.65), theta=1.45
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.58, 5.07), measured_pos=(40.36, 5.40), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.32, 37.48), measured_pos=(14.38, 37.38), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.66, 37.74), measured_pos=(2.68, 37.74), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(37.43, 16.32), measured_pos=(37.37, 16.36), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.56, 26.17), measured_pos=(41.59, 26.22), cov_diag=(0.022, 0.022)
+
+--- Timestep 116 ---
+Robot: pos=(16.62, 30.95), theta=1.46
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.43, 5.18), measured_pos=(40.66, 5.68), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(14.15, 37.54), measured_pos=(14.20, 37.78), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(2.85, 37.75), measured_pos=(3.07, 37.63), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(37.29, 16.42), measured_pos=(37.20, 16.33), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.61, 26.36), measured_pos=(41.50, 26.22), cov_diag=(0.022, 0.022)
+
+--- Timestep 117 ---
+Robot: pos=(16.65, 31.24), theta=1.46
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.29, 5.29), measured_pos=(40.32, 5.32), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.98, 37.60), measured_pos=(13.93, 37.58), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.04, 37.77), measured_pos=(3.10, 37.96), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(37.14, 16.51), measured_pos=(36.89, 16.49), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.66, 26.54), measured_pos=(41.94, 26.51), cov_diag=(0.022, 0.022)
+
+--- Timestep 118 ---
+Robot: pos=(16.68, 31.54), theta=1.45
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(40.14, 5.39), measured_pos=(39.96, 5.17), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.82, 37.65), measured_pos=(13.91, 37.63), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.23, 37.79), measured_pos=(3.13, 37.66), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(36.99, 16.60), measured_pos=(36.97, 16.57), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.71, 26.73), measured_pos=(41.51, 26.82), cov_diag=(0.022, 0.022)
+
+--- Timestep 119 ---
+Robot: pos=(16.72, 31.84), theta=1.45
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.99, 5.50), measured_pos=(39.84, 5.38), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.65, 37.71), measured_pos=(13.60, 37.61), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.42, 37.81), measured_pos=(3.36, 37.92), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(36.84, 16.70), measured_pos=(36.83, 16.49), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.77, 26.92), measured_pos=(41.93, 26.88), cov_diag=(0.022, 0.022)
+
+--- Timestep 120 ---
+Robot: pos=(16.75, 32.14), theta=1.44
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.84, 5.61), measured_pos=(39.78, 5.60), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.49, 37.77), measured_pos=(13.33, 37.79), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.61, 37.83), measured_pos=(3.72, 37.69), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(36.69, 16.79), measured_pos=(36.73, 16.62), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.82, 27.11), measured_pos=(41.83, 27.09), cov_diag=(0.022, 0.022)
+
+--- Timestep 121 ---
+Robot: pos=(16.79, 32.44), theta=1.43
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.69, 5.72), measured_pos=(39.81, 5.58), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.32, 37.83), measured_pos=(13.17, 37.68), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(3.81, 37.84), measured_pos=(4.00, 37.74), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(36.55, 16.88), measured_pos=(36.61, 16.87), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.87, 27.29), measured_pos=(42.08, 27.44), cov_diag=(0.022, 0.022)
+
+--- Timestep 122 ---
+Robot: pos=(16.83, 32.73), theta=1.42
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.54, 5.83), measured_pos=(39.73, 5.69), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(13.15, 37.89), measured_pos=(13.05, 37.93), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.00, 37.86), measured_pos=(3.95, 37.89), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(36.40, 16.98), measured_pos=(36.50, 17.19), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.92, 27.48), measured_pos=(41.75, 27.69), cov_diag=(0.022, 0.022)
+
+--- Timestep 123 ---
+Robot: pos=(16.88, 33.03), theta=1.26
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.40, 5.93), measured_pos=(39.46, 6.16), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.99, 37.94), measured_pos=(12.86, 37.95), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.19, 37.88), measured_pos=(3.97, 37.88), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(36.25, 17.07), measured_pos=(36.45, 17.02), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(41.97, 27.67), measured_pos=(41.98, 27.70), cov_diag=(0.022, 0.022)
+
+--- Timestep 124 ---
+Robot: pos=(16.97, 33.31), theta=1.10
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.25, 6.04), measured_pos=(39.19, 5.90), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.82, 38.00), measured_pos=(12.72, 38.09), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.38, 37.90), measured_pos=(4.55, 37.99), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(36.10, 17.16), measured_pos=(36.20, 17.06), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.03, 27.85), measured_pos=(41.89, 27.97), cov_diag=(0.022, 0.022)
+
+--- Timestep 125 ---
+Robot: pos=(17.11, 33.58), theta=1.01
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(39.10, 6.15), measured_pos=(39.04, 6.20), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.65, 38.06), measured_pos=(12.74, 37.78), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.57, 37.91), measured_pos=(4.47, 37.96), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(35.95, 17.26), measured_pos=(36.08, 17.41), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.08, 28.04), measured_pos=(42.40, 27.85), cov_diag=(0.022, 0.022)
+
+--- Timestep 126 ---
+Robot: pos=(17.27, 33.84), theta=1.04
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.95, 6.26), measured_pos=(38.82, 6.43), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.49, 38.12), measured_pos=(12.51, 38.18), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.76, 37.93), measured_pos=(4.79, 38.04), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(35.81, 17.35), measured_pos=(35.62, 17.38), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.13, 28.23), measured_pos=(42.36, 28.25), cov_diag=(0.022, 0.022)
+
+--- Timestep 127 ---
+Robot: pos=(17.42, 34.10), theta=1.09
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.80, 6.37), measured_pos=(38.97, 6.54), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.32, 38.17), measured_pos=(12.35, 38.36), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(4.95, 37.95), measured_pos=(4.93, 38.01), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(35.66, 17.44), measured_pos=(35.58, 17.28), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.18, 28.41), measured_pos=(42.11, 28.54), cov_diag=(0.022, 0.022)
+
+--- Timestep 128 ---
+Robot: pos=(17.56, 34.36), theta=1.13
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.65, 6.47), measured_pos=(38.74, 6.59), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(12.16, 38.23), measured_pos=(12.13, 38.13), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.14, 37.97), measured_pos=(5.28, 37.99), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(35.51, 17.54), measured_pos=(35.32, 17.38), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.24, 28.60), measured_pos=(42.15, 28.58), cov_diag=(0.022, 0.022)
+
+--- Timestep 129 ---
+Robot: pos=(17.69, 34.63), theta=1.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.51, 6.58), measured_pos=(38.36, 6.76), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.99, 38.29), measured_pos=(11.73, 38.32), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.33, 37.99), measured_pos=(5.18, 38.13), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(35.36, 17.63), measured_pos=(35.27, 17.46), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.29, 28.79), measured_pos=(42.31, 28.64), cov_diag=(0.022, 0.022)
+
+--- Timestep 130 ---
+Robot: pos=(17.81, 34.91), theta=1.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.36, 6.69), measured_pos=(38.59, 6.66), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.82, 38.35), measured_pos=(11.71, 37.88), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.52, 38.00), measured_pos=(5.47, 38.04), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(35.21, 17.72), measured_pos=(35.04, 17.85), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.34, 28.97), measured_pos=(42.18, 28.55), cov_diag=(0.022, 0.022)
+
+--- Timestep 131 ---
+Robot: pos=(17.92, 35.18), theta=1.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.21, 6.80), measured_pos=(38.41, 6.77), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.66, 38.40), measured_pos=(11.69, 38.36), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.71, 38.02), measured_pos=(5.83, 37.86), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(35.07, 17.82), measured_pos=(35.20, 17.87), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.39, 29.16), measured_pos=(42.30, 29.22), cov_diag=(0.022, 0.022)
+
+--- Timestep 132 ---
+Robot: pos=(18.04, 35.46), theta=1.20
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(38.06, 6.91), measured_pos=(38.01, 6.72), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.49, 38.46), measured_pos=(11.11, 38.48), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(5.90, 38.04), measured_pos=(5.94, 38.26), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(34.92, 17.91), measured_pos=(34.68, 17.90), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.44, 29.35), measured_pos=(42.37, 29.35), cov_diag=(0.022, 0.022)
+
+--- Timestep 133 ---
+Robot: pos=(18.14, 35.74), theta=1.22
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.91, 7.01), measured_pos=(37.92, 6.91), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.33, 38.52), measured_pos=(11.34, 38.46), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.09, 38.06), measured_pos=(6.25, 38.04), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(34.77, 18.00), measured_pos=(34.67, 17.83), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.50, 29.53), measured_pos=(42.21, 29.48), cov_diag=(0.022, 0.022)
+
+--- Timestep 134 ---
+Robot: pos=(18.25, 36.02), theta=1.21
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.76, 7.12), measured_pos=(37.45, 7.11), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(11.16, 38.58), measured_pos=(11.21, 38.40), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.28, 38.08), measured_pos=(6.18, 37.92), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(34.62, 18.09), measured_pos=(34.19, 18.10), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.55, 29.72), measured_pos=(42.64, 29.65), cov_diag=(0.022, 0.022)
+
+--- Timestep 135 ---
+Robot: pos=(18.35, 36.30), theta=1.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.62, 7.23), measured_pos=(37.55, 7.10), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.99, 38.64), measured_pos=(10.97, 38.62), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.47, 38.09), measured_pos=(6.51, 38.22), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(34.47, 18.19), measured_pos=(34.40, 18.11), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.60, 29.91), measured_pos=(42.38, 29.95), cov_diag=(0.022, 0.022)
+
+--- Timestep 136 ---
+Robot: pos=(18.47, 36.58), theta=1.09
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.47, 7.34), measured_pos=(37.42, 7.15), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.83, 38.69), measured_pos=(10.85, 38.85), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.66, 38.11), measured_pos=(6.70, 38.27), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(34.33, 18.28), measured_pos=(34.13, 18.41), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.65, 30.09), measured_pos=(42.58, 30.20), cov_diag=(0.022, 0.022)
+
+--- Timestep 137 ---
+Robot: pos=(18.61, 36.85), theta=1.02
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.32, 7.45), measured_pos=(37.25, 7.42), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.66, 38.75), measured_pos=(10.52, 38.87), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(6.85, 38.13), measured_pos=(6.97, 38.03), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(34.18, 18.37), measured_pos=(34.27, 18.23), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.71, 30.28), measured_pos=(42.79, 30.34), cov_diag=(0.022, 0.022)
+
+--- Timestep 138 ---
+Robot: pos=(18.77, 37.10), theta=0.94
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.17, 7.56), measured_pos=(37.14, 7.42), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.49, 38.81), measured_pos=(10.28, 38.81), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.04, 38.15), measured_pos=(7.30, 38.08), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(34.03, 18.47), measured_pos=(34.35, 18.47), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.76, 30.47), measured_pos=(43.07, 30.53), cov_diag=(0.022, 0.022)
+
+--- Timestep 139 ---
+Robot: pos=(18.94, 37.34), theta=0.87
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(37.02, 7.66), measured_pos=(37.06, 7.81), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.33, 38.87), measured_pos=(10.47, 38.79), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.23, 38.16), measured_pos=(7.24, 38.28), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(33.88, 18.56), measured_pos=(33.77, 18.54), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.81, 30.66), measured_pos=(42.84, 30.77), cov_diag=(0.022, 0.022)
+
+--- Timestep 140 ---
+Robot: pos=(19.14, 37.57), theta=0.79
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.87, 7.77), measured_pos=(36.85, 7.69), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.16, 38.92), measured_pos=(10.23, 38.91), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.42, 38.18), measured_pos=(7.44, 38.15), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(33.73, 18.65), measured_pos=(33.88, 18.63), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.86, 30.84), measured_pos=(42.88, 31.06), cov_diag=(0.022, 0.022)
+
+--- Timestep 141 ---
+Robot: pos=(19.35, 37.79), theta=0.72
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.73, 7.88), measured_pos=(36.83, 8.11), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(10.00, 38.98), measured_pos=(10.07, 38.94), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.61, 38.20), measured_pos=(7.96, 38.29), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(33.59, 18.75), measured_pos=(33.85, 18.77), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.91, 31.03), measured_pos=(43.05, 30.83), cov_diag=(0.022, 0.022)
+
+--- Timestep 142 ---
+Robot: pos=(19.57, 37.99), theta=0.64
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.58, 7.99), measured_pos=(36.58, 7.90), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.83, 39.04), measured_pos=(9.90, 39.04), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.80, 38.22), measured_pos=(7.57, 38.31), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(33.44, 18.84), measured_pos=(33.55, 18.79), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.97, 31.22), measured_pos=(43.48, 31.05), cov_diag=(0.022, 0.022)
+
+--- Timestep 143 ---
+Robot: pos=(19.81, 38.17), theta=0.57
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.43, 8.10), measured_pos=(36.67, 8.19), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.66, 39.10), measured_pos=(9.51, 39.33), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(7.99, 38.24), measured_pos=(8.03, 38.27), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(33.29, 18.93), measured_pos=(33.72, 19.04), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.02, 31.40), measured_pos=(42.93, 31.37), cov_diag=(0.022, 0.022)
+
+--- Timestep 144 ---
+Robot: pos=(20.07, 38.33), theta=0.49
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.28, 8.20), measured_pos=(36.28, 8.20), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.50, 39.15), measured_pos=(9.62, 39.28), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.18, 38.25), measured_pos=(8.28, 38.52), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(33.14, 19.03), measured_pos=(33.27, 19.13), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.07, 31.59), measured_pos=(43.13, 31.49), cov_diag=(0.022, 0.022)
+
+--- Timestep 145 ---
+Robot: pos=(20.33, 38.47), theta=0.42
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(36.13, 8.31), measured_pos=(35.98, 8.37), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.33, 39.21), measured_pos=(9.58, 39.10), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.37, 38.27), measured_pos=(8.16, 38.39), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(32.99, 19.12), measured_pos=(33.10, 18.98), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.12, 31.78), measured_pos=(42.94, 31.84), cov_diag=(0.022, 0.022)
+
+--- Timestep 146 ---
+Robot: pos=(20.60, 38.59), theta=0.34
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.98, 8.42), measured_pos=(36.04, 8.38), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.16, 39.27), measured_pos=(9.36, 39.07), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.56, 38.29), measured_pos=(8.56, 38.23), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(32.85, 19.21), measured_pos=(32.83, 19.38), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.18, 31.96), measured_pos=(42.98, 31.77), cov_diag=(0.022, 0.022)
+
+--- Timestep 147 ---
+Robot: pos=(20.89, 38.69), theta=0.27
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.84, 8.53), measured_pos=(35.64, 8.46), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(9.00, 39.33), measured_pos=(8.88, 39.46), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.75, 38.31), measured_pos=(8.88, 38.44), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(32.70, 19.31), measured_pos=(32.61, 19.46), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.23, 32.15), measured_pos=(43.02, 32.19), cov_diag=(0.022, 0.022)
+
+--- Timestep 148 ---
+Robot: pos=(21.18, 38.77), theta=0.20
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.69, 8.64), measured_pos=(35.65, 8.76), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.83, 39.38), measured_pos=(8.76, 39.22), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(8.94, 38.32), measured_pos=(9.12, 38.07), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(32.55, 19.40), measured_pos=(32.40, 19.19), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.28, 32.34), measured_pos=(43.19, 32.19), cov_diag=(0.022, 0.022)
+
+--- Timestep 149 ---
+Robot: pos=(21.47, 38.83), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.54, 8.74), measured_pos=(35.47, 8.96), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.67, 39.44), measured_pos=(8.69, 39.30), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.13, 38.34), measured_pos=(9.19, 38.47), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(32.40, 19.49), measured_pos=(32.32, 19.63), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.33, 32.52), measured_pos=(43.38, 32.48), cov_diag=(0.022, 0.022)
+
+--- Timestep 150 ---
+Robot: pos=(21.77, 38.88), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.39, 8.85), measured_pos=(35.39, 9.16), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.50, 39.50), measured_pos=(8.59, 39.65), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.32, 38.36), measured_pos=(9.21, 38.58), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(32.25, 19.59), measured_pos=(32.38, 19.62), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.38, 32.71), measured_pos=(43.27, 32.89), cov_diag=(0.022, 0.022)
+
+--- Timestep 151 ---
+Robot: pos=(22.06, 38.94), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.24, 8.96), measured_pos=(35.31, 9.21), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.33, 39.56), measured_pos=(8.13, 39.37), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.51, 38.38), measured_pos=(9.47, 38.41), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(32.11, 19.68), measured_pos=(31.91, 19.67), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.44, 32.90), measured_pos=(43.29, 33.07), cov_diag=(0.022, 0.022)
+
+--- Timestep 152 ---
+Robot: pos=(22.36, 38.99), theta=0.19
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(35.09, 9.07), measured_pos=(34.97, 9.01), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.17, 39.62), measured_pos=(8.28, 39.78), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.70, 38.40), measured_pos=(9.75, 38.48), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(31.96, 19.77), measured_pos=(31.83, 19.62), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.49, 33.08), measured_pos=(43.76, 32.88), cov_diag=(0.022, 0.022)
+
+--- Timestep 153 ---
+Robot: pos=(22.65, 39.04), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.95, 9.18), measured_pos=(35.04, 9.02), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(8.00, 39.67), measured_pos=(8.15, 39.75), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(9.89, 38.41), measured_pos=(9.81, 38.48), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(31.81, 19.87), measured_pos=(31.53, 20.17), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.54, 33.27), measured_pos=(43.65, 33.21), cov_diag=(0.022, 0.022)
+
+--- Timestep 154 ---
+Robot: pos=(22.95, 39.10), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.80, 9.28), measured_pos=(34.60, 9.21), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(7.84, 39.73), measured_pos=(7.92, 39.68), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.08, 38.43), measured_pos=(9.83, 38.24), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(31.66, 19.96), measured_pos=(31.75, 19.97), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.59, 33.46), measured_pos=(43.50, 33.56), cov_diag=(0.022, 0.022)
+
+--- Timestep 155 ---
+Robot: pos=(23.24, 39.15), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.65, 9.39), measured_pos=(34.37, 9.35), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(7.67, 39.79), measured_pos=(7.49, 39.80), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.27, 38.45), measured_pos=(10.36, 38.57), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(31.51, 20.05), measured_pos=(31.58, 20.11), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.65, 33.64), measured_pos=(43.49, 33.64), cov_diag=(0.022, 0.022)
+
+--- Timestep 156 ---
+Robot: pos=(23.54, 39.20), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.50, 9.50), measured_pos=(34.45, 9.39), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(7.50, 39.85), measured_pos=(7.59, 39.76), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.46, 38.47), measured_pos=(10.48, 38.38), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(31.37, 20.15), measured_pos=(31.27, 20.43), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.70, 33.83), measured_pos=(43.76, 33.84), cov_diag=(0.022, 0.022)
+
+--- Timestep 157 ---
+Robot: pos=(23.83, 39.25), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.35, 9.61), measured_pos=(34.33, 9.63), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(7.34, 39.90), measured_pos=(7.43, 40.07), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.65, 38.48), measured_pos=(10.63, 38.35), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(31.22, 20.24), measured_pos=(31.38, 20.73), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.75, 34.02), measured_pos=(43.78, 34.28), cov_diag=(0.022, 0.022)
+
+--- Timestep 158 ---
+Robot: pos=(24.13, 39.30), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.20, 9.72), measured_pos=(33.89, 9.73), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(7.17, 39.96), measured_pos=(7.41, 40.08), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(10.85, 38.50), measured_pos=(11.00, 38.75), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(31.07, 20.33), measured_pos=(30.77, 20.48), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.80, 34.20), measured_pos=(43.83, 34.14), cov_diag=(0.022, 0.022)
+
+--- Timestep 159 ---
+Robot: pos=(24.42, 39.36), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(34.05, 9.82), measured_pos=(34.01, 9.83), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(7.00, 40.02), measured_pos=(7.23, 39.97), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.04, 38.52), measured_pos=(11.17, 38.56), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(30.92, 20.43), measured_pos=(31.00, 20.80), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.85, 34.39), measured_pos=(43.88, 34.56), cov_diag=(0.022, 0.022)
+
+--- Timestep 160 ---
+Robot: pos=(24.72, 39.41), theta=0.20
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(33.91, 9.93), measured_pos=(33.89, 10.03), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(6.84, 40.08), measured_pos=(6.64, 39.97), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.23, 38.54), measured_pos=(11.46, 38.72), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(30.77, 20.52), measured_pos=(30.82, 20.58), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.91, 34.58), measured_pos=(43.98, 34.60), cov_diag=(0.022, 0.022)
+
+--- Timestep 161 ---
+Robot: pos=(25.01, 39.47), theta=0.19
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(33.76, 10.04), measured_pos=(33.64, 9.79), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(6.67, 40.13), measured_pos=(6.57, 40.14), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.42, 38.56), measured_pos=(11.45, 38.34), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(30.63, 20.61), measured_pos=(30.95, 20.86), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.96, 34.77), measured_pos=(44.21, 34.77), cov_diag=(0.022, 0.022)
+
+--- Timestep 162 ---
+Robot: pos=(25.31, 39.52), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(33.61, 10.15), measured_pos=(33.46, 10.45), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(6.51, 40.19), measured_pos=(6.47, 40.08), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.61, 38.57), measured_pos=(11.72, 38.36), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(30.48, 20.71), measured_pos=(30.22, 20.79), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(44.01, 34.95), measured_pos=(43.84, 35.09), cov_diag=(0.022, 0.022)
+
+--- Timestep 163 ---
+Robot: pos=(25.60, 39.57), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(33.46, 10.26), measured_pos=(33.54, 10.32), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(6.34, 40.25), measured_pos=(6.52, 40.36), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.80, 38.59), measured_pos=(11.94, 38.61), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(30.33, 20.80), measured_pos=(30.30, 21.04), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(44.06, 35.14), measured_pos=(44.03, 34.83), cov_diag=(0.022, 0.022)
+
+--- Timestep 164 ---
+Robot: pos=(25.90, 39.62), theta=0.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(33.31, 10.36), measured_pos=(33.45, 10.42), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(6.17, 40.31), measured_pos=(6.29, 40.48), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(11.99, 38.61), measured_pos=(11.97, 38.86), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(30.18, 20.89), measured_pos=(30.26, 21.06), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(44.12, 35.33), measured_pos=(43.93, 35.32), cov_diag=(0.022, 0.022)
+
+--- Timestep 165 ---
+Robot: pos=(26.20, 39.67), theta=0.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(33.16, 10.47), measured_pos=(33.06, 10.56), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(6.01, 40.36), measured_pos=(6.00, 40.38), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.18, 38.63), measured_pos=(12.42, 38.91), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(30.03, 20.99), measured_pos=(30.20, 21.07), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(44.12, 35.33), measured_pos=(43.93, 35.32), cov_diag=(0.022, 0.022)
+
+--- Timestep 166 ---
+Robot: pos=(26.49, 39.72), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(33.02, 10.58), measured_pos=(33.12, 10.73), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(5.84, 40.42), measured_pos=(5.98, 40.43), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.37, 38.65), measured_pos=(12.26, 38.81), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(29.89, 21.08), measured_pos=(29.80, 21.33), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(44.06, 35.14), measured_pos=(44.16, 34.94), cov_diag=(0.022, 0.022)
+
+--- Timestep 167 ---
+Robot: pos=(26.79, 39.77), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(32.87, 10.69), measured_pos=(32.85, 10.32), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(5.67, 40.48), measured_pos=(5.79, 40.47), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.56, 38.66), measured_pos=(12.46, 38.94), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(29.74, 21.17), measured_pos=(29.92, 21.17), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(44.01, 34.95), measured_pos=(44.02, 35.15), cov_diag=(0.022, 0.022)
+
+--- Timestep 168 ---
+Robot: pos=(27.08, 39.82), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(32.72, 10.80), measured_pos=(32.83, 10.70), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(5.51, 40.54), measured_pos=(5.50, 40.56), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.75, 38.68), measured_pos=(12.45, 38.75), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(29.59, 21.27), measured_pos=(29.77, 21.38), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.96, 34.77), measured_pos=(44.11, 34.68), cov_diag=(0.022, 0.022)
+
+--- Timestep 169 ---
+Robot: pos=(27.38, 39.88), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(32.57, 10.90), measured_pos=(32.69, 11.10), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(5.34, 40.60), measured_pos=(5.35, 40.65), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(12.94, 38.70), measured_pos=(12.84, 38.69), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(29.44, 21.36), measured_pos=(29.30, 21.41), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.91, 34.58), measured_pos=(43.98, 34.67), cov_diag=(0.022, 0.022)
+
+--- Timestep 170 ---
+Robot: pos=(27.67, 39.93), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(32.42, 11.01), measured_pos=(32.40, 11.21), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(5.18, 40.65), measured_pos=(4.95, 40.74), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.13, 38.72), measured_pos=(13.00, 38.59), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(29.29, 21.45), measured_pos=(29.33, 21.33), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.85, 34.39), measured_pos=(43.88, 34.41), cov_diag=(0.022, 0.022)
+
+--- Timestep 171 ---
+Robot: pos=(27.97, 39.98), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(32.27, 11.12), measured_pos=(32.24, 11.03), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(5.01, 40.71), measured_pos=(5.34, 40.71), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.32, 38.73), measured_pos=(13.22, 38.70), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(29.15, 21.55), measured_pos=(29.44, 21.49), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.80, 34.20), measured_pos=(43.83, 34.28), cov_diag=(0.022, 0.022)
+
+--- Timestep 172 ---
+Robot: pos=(28.26, 40.03), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(32.13, 11.23), measured_pos=(32.13, 11.03), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(4.84, 40.77), measured_pos=(4.99, 40.74), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.51, 38.75), measured_pos=(13.52, 38.72), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(29.00, 21.64), measured_pos=(28.95, 21.53), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.75, 34.02), measured_pos=(43.86, 33.82), cov_diag=(0.022, 0.022)
+
+--- Timestep 173 ---
+Robot: pos=(28.56, 40.08), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(31.98, 11.34), measured_pos=(32.16, 11.19), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(4.68, 40.83), measured_pos=(4.93, 40.75), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.70, 38.77), measured_pos=(13.85, 38.85), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(28.85, 21.73), measured_pos=(28.79, 21.73), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.70, 33.83), measured_pos=(43.88, 33.78), cov_diag=(0.022, 0.022)
+
+--- Timestep 174 ---
+Robot: pos=(28.85, 40.14), theta=0.19
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(31.83, 11.44), measured_pos=(31.84, 11.50), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(4.51, 40.88), measured_pos=(4.86, 41.05), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(13.89, 38.79), measured_pos=(13.81, 38.93), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(28.70, 21.82), measured_pos=(28.54, 21.55), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.65, 33.64), measured_pos=(43.53, 33.40), cov_diag=(0.022, 0.022)
+
+--- Timestep 175 ---
+Robot: pos=(29.15, 40.19), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(31.68, 11.55), measured_pos=(31.47, 11.89), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(4.35, 40.94), measured_pos=(4.16, 41.05), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.08, 38.81), measured_pos=(13.86, 38.82), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(28.55, 21.92), measured_pos=(28.72, 21.99), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.59, 33.46), measured_pos=(43.41, 33.46), cov_diag=(0.022, 0.022)
+
+--- Timestep 176 ---
+Robot: pos=(29.44, 40.24), theta=0.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(31.53, 11.66), measured_pos=(31.54, 11.65), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(4.18, 41.00), measured_pos=(4.21, 41.01), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.27, 38.82), measured_pos=(14.23, 38.76), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(28.41, 22.01), measured_pos=(28.29, 22.11), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.54, 33.27), measured_pos=(43.39, 33.44), cov_diag=(0.022, 0.022)
+
+--- Timestep 177 ---
+Robot: pos=(29.74, 40.29), theta=0.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(31.38, 11.77), measured_pos=(31.51, 11.40), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(4.01, 41.06), measured_pos=(4.16, 41.05), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.46, 38.84), measured_pos=(14.76, 38.68), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(28.26, 22.10), measured_pos=(28.33, 22.19), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.49, 33.08), measured_pos=(43.35, 33.06), cov_diag=(0.022, 0.022)
+
+--- Timestep 178 ---
+Robot: pos=(30.04, 40.34), theta=0.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(31.24, 11.88), measured_pos=(31.42, 11.83), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(3.85, 41.11), measured_pos=(3.87, 41.28), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.65, 38.86), measured_pos=(14.61, 38.74), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(28.11, 22.20), measured_pos=(28.25, 22.36), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.44, 32.90), measured_pos=(43.39, 32.81), cov_diag=(0.022, 0.022)
+
+--- Timestep 179 ---
+Robot: pos=(30.33, 40.39), theta=0.19
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(31.09, 11.99), measured_pos=(30.98, 12.12), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(3.68, 41.17), measured_pos=(3.81, 41.28), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(14.84, 38.88), measured_pos=(14.81, 38.92), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(27.96, 22.29), measured_pos=(27.88, 22.05), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.38, 32.71), measured_pos=(43.67, 32.66), cov_diag=(0.022, 0.022)
+
+--- Timestep 180 ---
+Robot: pos=(30.63, 40.45), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(30.94, 12.09), measured_pos=(30.76, 12.13), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(3.51, 41.23), measured_pos=(3.43, 41.10), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.03, 38.89), measured_pos=(14.61, 38.79), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(27.81, 22.38), measured_pos=(27.95, 22.30), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.33, 32.52), measured_pos=(43.19, 32.54), cov_diag=(0.022, 0.022)
+
+--- Timestep 181 ---
+Robot: pos=(30.92, 40.50), theta=0.17
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(30.79, 12.20), measured_pos=(30.96, 12.23), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(3.35, 41.29), measured_pos=(3.19, 41.42), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.22, 38.91), measured_pos=(15.08, 38.97), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(27.67, 22.48), measured_pos=(27.76, 22.46), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.28, 32.34), measured_pos=(43.35, 32.19), cov_diag=(0.022, 0.022)
+
+--- Timestep 182 ---
+Robot: pos=(31.22, 40.55), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(30.64, 12.31), measured_pos=(30.48, 12.41), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(3.18, 41.35), measured_pos=(3.36, 41.24), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.41, 38.93), measured_pos=(15.54, 38.90), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(27.52, 22.57), measured_pos=(27.13, 22.66), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.23, 32.15), measured_pos=(43.33, 32.25), cov_diag=(0.022, 0.022)
+
+--- Timestep 183 ---
+Robot: pos=(31.51, 40.61), theta=0.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(30.49, 12.42), measured_pos=(30.54, 12.49), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(3.02, 41.40), measured_pos=(3.09, 41.19), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.60, 38.95), measured_pos=(15.54, 38.87), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(27.37, 22.66), measured_pos=(27.51, 22.71), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.18, 31.96), measured_pos=(42.98, 32.13), cov_diag=(0.022, 0.022)
+
+--- Timestep 184 ---
+Robot: pos=(31.81, 40.65), theta=0.16
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(30.35, 12.53), measured_pos=(30.23, 12.79), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(2.85, 41.46), measured_pos=(2.99, 41.73), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.79, 38.97), measured_pos=(15.86, 39.05), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(27.22, 22.76), measured_pos=(27.23, 22.65), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.12, 31.78), measured_pos=(43.13, 31.93), cov_diag=(0.022, 0.022)
+
+--- Timestep 185 ---
+Robot: pos=(32.11, 40.70), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(30.20, 12.63), measured_pos=(30.32, 12.74), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(2.68, 41.52), measured_pos=(2.65, 41.68), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(15.98, 38.98), measured_pos=(15.84, 39.32), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(27.07, 22.85), measured_pos=(27.17, 22.76), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.07, 31.59), measured_pos=(43.18, 31.38), cov_diag=(0.022, 0.022)
+
+--- Timestep 186 ---
+Robot: pos=(32.40, 40.76), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(30.05, 12.74), measured_pos=(29.96, 12.47), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(2.52, 41.58), measured_pos=(2.50, 41.57), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.17, 39.00), measured_pos=(16.05, 38.95), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(26.93, 22.94), measured_pos=(26.86, 22.90), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(43.02, 31.40), measured_pos=(42.83, 31.43), cov_diag=(0.022, 0.022)
+
+--- Timestep 187 ---
+Robot: pos=(32.70, 40.81), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(29.90, 12.85), measured_pos=(29.63, 13.07), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(2.35, 41.63), measured_pos=(2.45, 41.67), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.36, 39.02), measured_pos=(16.16, 39.21), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(26.78, 23.04), measured_pos=(26.95, 22.97), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.97, 31.22), measured_pos=(43.08, 31.22), cov_diag=(0.022, 0.022)
+
+--- Timestep 188 ---
+Robot: pos=(32.99, 40.86), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(29.75, 12.96), measured_pos=(29.70, 13.12), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(2.18, 41.69), measured_pos=(2.05, 41.49), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.55, 39.04), measured_pos=(16.48, 39.05), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(26.63, 23.13), measured_pos=(26.62, 23.02), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.91, 31.03), measured_pos=(43.05, 31.02), cov_diag=(0.022, 0.022)
+
+--- Timestep 189 ---
+Robot: pos=(33.29, 40.92), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(29.60, 13.07), measured_pos=(29.42, 12.81), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(2.02, 41.75), measured_pos=(2.22, 41.66), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.74, 39.05), measured_pos=(16.70, 39.13), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(26.48, 23.22), measured_pos=(26.48, 23.26), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.86, 30.84), measured_pos=(42.68, 30.82), cov_diag=(0.022, 0.022)
+
+--- Timestep 190 ---
+Robot: pos=(33.58, 40.97), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(29.46, 13.17), measured_pos=(29.71, 13.46), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(1.85, 41.81), measured_pos=(1.79, 42.05), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(16.93, 39.07), measured_pos=(16.78, 39.23), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(26.33, 23.32), measured_pos=(26.48, 23.28), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.81, 30.66), measured_pos=(42.76, 30.45), cov_diag=(0.022, 0.022)
+
+--- Timestep 191 ---
+Robot: pos=(33.88, 41.02), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(29.31, 13.28), measured_pos=(29.26, 12.80), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(1.69, 41.86), measured_pos=(1.65, 41.71), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.12, 39.09), measured_pos=(17.00, 38.94), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(26.19, 23.41), measured_pos=(26.05, 23.78), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.76, 30.47), measured_pos=(42.74, 30.44), cov_diag=(0.022, 0.022)
+
+--- Timestep 192 ---
+Robot: pos=(34.17, 41.08), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(29.16, 13.39), measured_pos=(29.10, 13.51), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(1.52, 41.92), measured_pos=(1.85, 41.93), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.31, 39.11), measured_pos=(16.90, 39.08), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(26.04, 23.50), measured_pos=(26.13, 23.43), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.71, 30.28), measured_pos=(42.60, 30.29), cov_diag=(0.022, 0.022)
+
+--- Timestep 193 ---
+Robot: pos=(34.47, 41.13), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(29.01, 13.50), measured_pos=(29.17, 13.64), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(1.35, 41.98), measured_pos=(1.33, 42.14), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.50, 39.13), measured_pos=(17.48, 39.49), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(25.89, 23.60), measured_pos=(25.53, 23.63), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.65, 30.09), measured_pos=(42.59, 30.11), cov_diag=(0.022, 0.022)
+
+--- Timestep 194 ---
+Robot: pos=(34.76, 41.18), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(28.86, 13.61), measured_pos=(28.84, 13.43), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(1.19, 42.04), measured_pos=(1.11, 42.05), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.69, 39.14), measured_pos=(18.04, 39.14), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(25.74, 23.69), measured_pos=(25.73, 23.74), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.60, 29.91), measured_pos=(42.80, 30.10), cov_diag=(0.022, 0.022)
+
+--- Timestep 195 ---
+Robot: pos=(35.06, 41.24), theta=0.18
+Goal: pos=(36.50, 41.50)
+Dynamic Obstacles:
+  ID 0: true_pos=(28.71, 13.71), measured_pos=(28.63, 13.62), cov_diag=(0.022, 0.022)
+  ID 1: true_pos=(1.02, 42.09), measured_pos=(0.98, 42.20), cov_diag=(0.022, 0.022)
+  ID 2: true_pos=(17.88, 39.16), measured_pos=(17.90, 38.92), cov_diag=(0.022, 0.022)
+  ID 3: true_pos=(25.59, 23.78), measured_pos=(25.57, 23.55), cov_diag=(0.022, 0.022)
+  ID 4: true_pos=(42.55, 29.72), measured_pos=(42.42, 29.69), cov_diag=(0.022, 0.022)
+
