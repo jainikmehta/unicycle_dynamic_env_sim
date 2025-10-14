@@ -32,9 +32,7 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
         circle = Circle((x, y), radius=obs.radius, color='red', zorder=5)
         ax1.add_patch(circle)
         ax1.arrow(x, y, 1.5*np.cos(theta), 1.5*np.sin(theta), head_width=0.8, fc='red', ec='red', zorder=5)
-        bubble = Circle((x, y), radius=obs.radius + const.D_SAFE, color='gray', ls='--', fill=False, zorder=1, alpha=0.5)
-        ax1.add_patch(bubble)
-
+        
         if const.NOISY_OBSTACLES:
             for i in range(const.N + 1):
                 cov = obs.predicted_cov[i]
@@ -42,8 +40,20 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
                 ell = Ellipse(xy=obs.predicted_path[:, i], width=w*const.SIGMA_BOUND*2, height=h*const.SIGMA_BOUND*2, 
                               angle=angle, facecolor='red', alpha=0.1, zorder=3)
                 ax1.add_patch(ell)
+                
+                # Plot effective radius for each predicted step
+                uncertainty_radius = const.SIGMA_BOUND * np.sqrt(np.trace(cov))
+                effective_radius = obs.radius + uncertainty_radius + const.D_SAFE
+                bubble = Circle(obs.predicted_path[:, i], radius=effective_radius, 
+                                color='black', ls='--', fill=False, zorder=4, alpha=0.5 * (1 - i/const.N))
+                ax1.add_patch(bubble)
         else:
             ax1.plot(obs.predicted_path[0, :], obs.predicted_path[1, :], 'r:', zorder=4)
+            # Plot effective radius for each predicted step (without uncertainty)
+            for i in range(const.N + 1):
+                bubble = Circle(obs.predicted_path[:, i], radius=obs.radius + const.D_SAFE, 
+                                color='black', ls='--', fill=False, zorder=1, alpha=0.5 * (1 - i/const.N))
+                ax1.add_patch(bubble)
 
 
     traj = np.array(robot.trajectory)
