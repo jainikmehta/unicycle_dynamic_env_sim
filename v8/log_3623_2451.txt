@@ -1,0 +1,4 @@
+--- Simulation Log ---
+DT: 0.1, N: 20, D_SAFE: 3.0
+NOISY_OBSTACLES: True, SIGMA_BOUND: 3.0
+--------------------
