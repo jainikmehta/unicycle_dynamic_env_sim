@@ -9,7 +9,7 @@ class RRTStar:
             self.parent = None
             self.cost = 0.0
 
-    def __init__(self, start, goal, obstacles_static, obstacles_dynamic, bounds, 
+    def __init__(self, start, goal, obstacles_static, bounds,
                  max_iter=500, step_size=2.0, search_radius=4.0, goal_sample_rate=0.1, safe_dist=3.0):
         self.start = self.Node(start)
         self.goal = self.Node(goal)
@@ -21,7 +21,6 @@ class RRTStar:
         self.safe_dist = safe_dist
 
         self.static_obs = obstacles_static
-        self.dynamic_obs = obstacles_dynamic
         self.node_list = [self.start]
 
     def plan(self):
@@ -127,18 +126,6 @@ class RRTStar:
         return best_node
 
     def is_collision_free(self, p_new):
-        # Dynamic obstacles (circles)
-        for obs in self.dynamic_obs:
-            # --- MODIFIED: Consider uncertainty in collision check ---
-            effective_radius = obs.radius
-            if const.NOISY_OBSTACLES:
-                uncertainty_radius = const.SIGMA_BOUND * np.sqrt(np.trace(obs.cov))
-                effective_radius += uncertainty_radius
-            
-            d = np.linalg.norm(obs.measured_state[:2] - p_new)
-            if d <= effective_radius + self.safe_dist:
-                return False
-
         # Static obstacles (rectangles)
         for obs in self.static_obs:
             dx = abs(p_new[0] - obs.center[0]) - obs.width / 2

@@ -13,13 +13,26 @@ import constants as const
 # --- Simulation Classes ---
 class Robot:
     def __init__(self, x, y, theta):
-        self.state = np.array([x, y, theta])
+        self.state = np.array([x, y, theta, 0.0, 0.0]) # state: [x, y, theta, v, w]
         self.radius = const.ROBOT_RADIUS
         self.trajectory = [self.state.copy()]
+
     def update_state(self, u, dt):
-        self.state[0] += dt * u[0] * np.cos(self.state[2])
-        self.state[1] += dt * u[0] * np.sin(self.state[2])
-        self.state[2] += dt * u[1]
+        # u = [linear_acceleration, angular_acceleration]
+        v = self.state[3]
+        w = self.state[4]
+        
+        # Update state using second-order dynamics
+        self.state[0] += dt * v * np.cos(self.state[2])
+        self.state[1] += dt * v * np.sin(self.state[2])
+        self.state[2] += dt * w
+        self.state[3] += dt * u[0]
+        self.state[4] += dt * u[1]
+
+        # Clamp velocities to their maximum values
+        self.state[3] = np.clip(self.state[3], 0, const.MAX_LINEAR_VEL)
+        self.state[4] = np.clip(self.state[4], -const.MAX_ANGULAR_VEL, const.MAX_ANGULAR_VEL)
+
         self.trajectory.append(self.state.copy())
 
 class Goal:
@@ -35,12 +48,15 @@ class DynamicObstacle:
         
         # Initialize uncertainty variables
         self.measured_state = self.true_state.copy()
-        self.cov = np.zeros((2, 2))
+        self.cov = np.diag([const.OBSTACLE_POS_NOISE_STD**2, const.OBSTACLE_POS_NOISE_STD**2])
         self.predicted_path = np.zeros((2, const.N + 1))
         self.predicted_cov = [np.zeros((2,2)) for _ in range(const.N + 1)]
-        
-        if const.NOISY_OBSTACLES:
-            self.measure()
+        self.sigma_bounds = np.zeros(const.N + 1)  # Store sigma bounds for each prediction step
+
+        # History for plotting
+        self.true_trajectory = [self.true_state.copy()]
+        self.measure() # Initial measurement
+        self.measured_trajectory = [self.measured_state.copy()]
 
     def measure(self):
         # Simulate noisy measurement
@@ -56,22 +72,28 @@ class DynamicObstacle:
         
         # Wall and static obstacle collision logic for true state
         if not (self.radius < next_x < x_lim-self.radius and self.radius < next_y < y_lim-self.radius):
-            self.true_state[2] += np.pi; return
+            self.true_state[2] += np.pi + np.random.uniform(-const.HEADING_NOISE_RANGE, const.HEADING_NOISE_RANGE)
+            return
         for obs in static_obstacles:
             closest_x=np.clip(next_x, obs.center[0]-obs.width/2, obs.center[0]+obs.width/2)
             closest_y=np.clip(next_y, obs.center[1]-obs.height/2, obs.center[1]+obs.height/2)
             if np.sqrt((next_x-closest_x)**2 + (next_y-closest_y)**2) < self.radius:
-                self.true_state[2] += np.pi; return
+                self.true_state[2] += np.pi + np.random.uniform(-const.HEADING_NOISE_RANGE, const.HEADING_NOISE_RANGE)
+                return
         self.true_state[0], self.true_state[1] = next_x, next_y
         
-        # Generate new measurement if noisy
-        if const.NOISY_OBSTACLES:
-            self.measure()
+        # Generate new measurement
+        self.measure()
+        
+        # Store history
+        self.true_trajectory.append(self.true_state.copy())
+        self.measured_trajectory.append(self.measured_state.copy())
 
     def predict_future_path(self):
         # Predict path and covariance based on the LATEST measurement
         self.predicted_path[:, 0] = self.measured_state[:2]
         self.predicted_cov[0] = self.cov
+        self.sigma_bounds = np.random.uniform(const.SIGMA_BOUND_LOWER, const.SIGMA_BOUND_UPPER, const.N + 1)
         
         for i in range(1, const.N + 1):
             self.predicted_path[0, i] = self.predicted_path[0, i-1] + const.DT * self.velocity * np.cos(self.measured_state[2])
@@ -126,6 +148,21 @@ def generate_reference_trajectory(robot_state, path):
         idx = min(closest_idx + i, len(path) - 1)
         ref_path[:, i] = path[idx]
     return ref_path
+    
+def check_collision(robot, dynamic_obstacles, static_obstacles):
+    # Check collision with dynamic obstacles
+    for obs in dynamic_obstacles:
+        if np.linalg.norm(robot.state[:2] - obs.true_state[:2]) < robot.radius + obs.radius:
+            return True, "dynamic"
+            
+    # Check collision with static obstacles
+    for obs in static_obstacles:
+        closest_x = np.clip(robot.state[0], obs.center[0] - obs.width/2, obs.center[0] + obs.width/2)
+        closest_y = np.clip(robot.state[1], obs.center[1] - obs.height/2, obs.center[1] + obs.height/2)
+        if np.linalg.norm(robot.state[:2] - np.array([closest_x, closest_y])) < robot.radius:
+            return True, "static"
+            
+    return False, None
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run NMPC simulation.")
@@ -156,10 +193,10 @@ if __name__ == "__main__":
                 obs.update_state(const.DT, static_obstacles, const.X_LIM, const.Y_LIM)
                 obs.predict_future_path()
 
-            # 2. Plan with RRT* using the latest measurements
+            # 2. Plan with RRT*
             print("Planning with RRT*...")
             rrt = RRTStar(start=robot.state[:2], goal=goal.state,
-                          obstacles_static=static_obstacles, obstacles_dynamic=dynamic_obstacles,
+                          obstacles_static=static_obstacles,
                           bounds=[0, const.X_LIM, 0, const.Y_LIM], safe_dist=const.ROBOT_RADIUS + const.D_SAFE)
             new_path = rrt.plan()
             if new_path is not None: rrt_path = new_path
@@ -168,13 +205,24 @@ if __name__ == "__main__":
             # 3. Generate reference for NMPC and solve
             x_ref = generate_reference_trajectory(robot.state, rrt_path)
             u_optimal, x_predicted, h_dyn, h_stat = nmpc_solver(robot.state, x_ref, dynamic_obstacles, static_obstacles)
+
+            if u_optimal is None:
+                print("NMPC solver failed to find a solution. Halting simulation.")
+                break
+            
             robot.update_state(u_optimal, const.DT)
             
-            # 4. Log data for this timestep
-            logger.log_timestep(t, robot, goal, dynamic_obstacles, static_obstacles)
+            # 4. Check for collisions
+            collided, obs_type = check_collision(robot, dynamic_obstacles, static_obstacles)
+            if collided:
+                print(f"Collision detected with a {obs_type} obstacle at timestep {t}. Halting simulation.")
+                break
+
+            # 5. Log data for this timestep
+            logger.log_timestep(t, robot, goal, dynamic_obstacles)
             control_history.append(u_optimal); h_dyn_history.append(min(h_dyn) if h_dyn else 0); h_stat_history.append(min(h_stat) if h_stat else 0)
 
-            # 5. Plotting
+            # 6. Plotting
             frame_path = f"frames/frame_{t:03d}.png"
             plot_environment(robot, goal, static_obstacles, dynamic_obstacles, 
                              x_predicted, rrt_path, control_history, h_dyn_history, h_stat_history, save_path=frame_path)
@@ -191,3 +239,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"An error occurred: {e}")
+

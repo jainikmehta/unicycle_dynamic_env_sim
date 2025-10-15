@@ -26,39 +26,44 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
                            obs.width+2*const.D_SAFE, obs.height+2*const.D_SAFE, 
                            color='gray', ls='--', fill=False, zorder=1, alpha=0.5)
         ax1.add_patch(bubble)
-
+    
+    # Use flags to add labels only once
+    has_dyn_obs_labels = False
     for obs in dynamic_obstacles:
         x, y, theta = obs.measured_state
         circle = Circle((x, y), radius=obs.radius, color='red', zorder=5)
         ax1.add_patch(circle)
         ax1.arrow(x, y, 1.5*np.cos(theta), 1.5*np.sin(theta), head_width=0.8, fc='red', ec='red', zorder=5)
-        
-        if const.NOISY_OBSTACLES:
-            for i in range(const.N + 1):
-                cov = obs.predicted_cov[i]
-                w, h, angle = cov_to_ellipse(cov)
-                ell = Ellipse(xy=obs.predicted_path[:, i], width=w*const.SIGMA_BOUND*2, height=h*const.SIGMA_BOUND*2, 
-                              angle=angle, facecolor='red', alpha=0.1, zorder=3)
-                ax1.add_patch(ell)
-                
-                # Plot effective radius for each predicted step
-                uncertainty_radius = const.SIGMA_BOUND * np.sqrt(np.trace(cov))
-                effective_radius = obs.radius + uncertainty_radius + const.D_SAFE
-                bubble = Circle(obs.predicted_path[:, i], radius=effective_radius, 
-                                color='black', ls='--', fill=False, zorder=4, alpha=0.5 * (1 - i/const.N))
-                ax1.add_patch(bubble)
-        else:
-            ax1.plot(obs.predicted_path[0, :], obs.predicted_path[1, :], 'r:', zorder=4)
-            # Plot effective radius for each predicted step (without uncertainty)
-            for i in range(const.N + 1):
-                bubble = Circle(obs.predicted_path[:, i], radius=obs.radius + const.D_SAFE, 
-                                color='black', ls='--', fill=False, zorder=1, alpha=0.5 * (1 - i/const.N))
-                ax1.add_patch(bubble)
 
+        # Plot obstacle trajectories
+        true_traj = np.array(obs.true_trajectory)
+        meas_traj = np.array(obs.measured_trajectory)
+        ax1.plot(true_traj[:, 0], true_traj[:, 1], 'r-', lw=1.5, label='Actual Obs Path' if not has_dyn_obs_labels else "", zorder=6)
+        ax1.plot(meas_traj[:, 0], meas_traj[:, 1], 'r:', lw=1.5, label='Measured Obs Path' if not has_dyn_obs_labels else "", zorder=6)
+        has_dyn_obs_labels = True
+        
+        plot_indices = [0, 10, 20]
+        for i in plot_indices:
+            if i < len(obs.predicted_path[0]):
+                cov = obs.predicted_cov[i]
+                
+                # Upper baseline bound (disk)
+                uncertainty_radius_upper = const.SIGMA_BOUND_UPPER * np.sqrt(np.trace(cov))
+                effective_radius_upper = obs.radius + uncertainty_radius_upper + const.D_SAFE
+                disk = Circle(obs.predicted_path[:, i], radius=effective_radius_upper, 
+                              color='orange', fill=True, zorder=3, alpha=0.7 - (i*0.02))
+                ax1.add_patch(disk)
+
+                # Updated bound (solid black circle)
+                uncertainty_radius_updated = obs.sigma_bounds[i] * np.sqrt(np.trace(cov))
+                effective_radius_updated = obs.radius + uncertainty_radius_updated + const.D_SAFE
+                bubble = Circle(obs.predicted_path[:, i], radius=effective_radius_updated, 
+                                color='black', ls='-', fill=False, zorder=4)
+                ax1.add_patch(bubble)
 
     traj = np.array(robot.trajectory)
     ax1.plot(traj[:, 0], traj[:, 1], 'b-', lw=1.5, label='Robot Path', zorder=8)
-    rx, ry, r_theta = robot.state
+    rx, ry, r_theta = robot.state[:3]
     robot_patch = Circle((rx, ry), radius=robot.radius, color='blue', zorder=10)
     ax1.add_patch(robot_patch)
     ax1.arrow(rx, ry, 2.0*np.cos(r_theta), 2.0*np.sin(r_theta), head_width=0.8, fc='blue', ec='blue', zorder=10)
@@ -73,8 +78,8 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
     if control_history:
         controls = np.array(control_history)
         time = np.arange(len(controls)) * const.DT
-        ax2.plot(time, controls[:, 0], label='Linear Velocity')
-        ax2.plot(time, controls[:, 1], label='Angular Velocity')
+        ax2.plot(time, controls[:, 0], label='Linear Accel.')
+        ax2.plot(time, controls[:, 1], label='Angular Accel.')
         ax2.set_title('Control Inputs vs. Time'); ax2.legend(); ax2.grid(True)
 
     # --- CBF h-value Plot ---
