@@ -47,8 +47,8 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
             obs_pred_pos = obs.predicted_path[:, k]
             cov = obs.predicted_cov[k]
             sigma_bound = obs.sigma_bounds[k]
-            # uncertainty_radius = sigma_bound * ca.sqrt(cov[0,0] + cov[1,1])
-            uncertainty_radius = obs_pred_pos[0] + sigma_bound * cov[0,0]
+            uncertainty_radius = sigma_bound * ca.sqrt(cov[0,0] + cov[1,1])
+            # uncertainty_radius = obs_pred_pos[0] + sigma_bound * cov[0,0]
             effective_radius = obs.radius + uncertainty_radius
             dist_sq = (X[0, k] - obs_pred_pos[0])**2 + (X[1, k] - obs_pred_pos[1])**2
             h = dist_sq - (const.ROBOT_RADIUS + effective_radius + const.D_SAFE)**2
@@ -60,9 +60,9 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         opti.subject_to(h_sequence[0] >= -S_dyn[i, 0])
         opti.subject_to(S_dyn[i,0] >= 0)
         for k in range(1, const.N + 1):
-            opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= 0)
-            # opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= -S_dyn[i, k])
-            # opti.subject_to(S_dyn[i, k] >= 0)
+            # opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= 0)
+            opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= -S_dyn[i, k])
+            opti.subject_to(S_dyn[i, k] >= 0)
             
     # Static obstacles
     for i, obs in enumerate(static_obstacles):
