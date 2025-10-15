@@ -30,7 +30,7 @@ MAX_ANGULAR_ACCEL = np.pi / 4  # rad/s^2
 Q_path = np.diag([25.0, 25.0]) # Weights for path tracking error
 R = np.diag([0.1, 0.05])     # Weights for control input
 SLACK_PENALTY = 1000
-D_SAFE = 3.0
+D_SAFE = 1.0
 CBF_GAMMA = 0.7 # Damping factor for higher-order CBF constraint
 
 # --- Environment Parameters ---
