@@ -179,11 +179,21 @@ if __name__ == "__main__":
         grid = Grid(const.X_LIM, const.Y_LIM, const.GRID_RESOLUTION, border_width=2)
         robot, goal, static_obstacles, dynamic_obstacles = setup_environment(grid)
         print("Environment setup successful.")
+        
+        # 1. Plan with RRT* once at the beginning
+        print("Planning with RRT*...")
+        rrt = RRTStar(start=robot.state[:2], goal=goal.state,
+                      obstacles_static=static_obstacles,
+                      bounds=[0, const.X_LIM, 0, const.Y_LIM], safe_dist=const.ROBOT_RADIUS + const.D_SAFE)
+        rrt_path = rrt.plan()
+        if rrt_path is None: 
+            raise Exception("RRT* failed to find an initial path.")
+
 
         random_suffix = random.randint(1000, 9999)
         logger = DataLogger(f"log_{seed}_{random_suffix}.txt")
 
-        control_history = []; h_dyn_history = []; h_stat_history = []; rrt_path = None
+        control_history = []; h_dyn_history = []; h_stat_history = []
 
         for t in range(const.MAX_SIM_STEPS):
             print(f"--- Timestep {t} ---")
@@ -193,16 +203,7 @@ if __name__ == "__main__":
                 obs.update_state(const.DT, static_obstacles, const.X_LIM, const.Y_LIM)
                 obs.predict_future_path()
 
-            # 2. Plan with RRT*
-            print("Planning with RRT*...")
-            rrt = RRTStar(start=robot.state[:2], goal=goal.state,
-                          obstacles_static=static_obstacles,
-                          bounds=[0, const.X_LIM, 0, const.Y_LIM], safe_dist=const.ROBOT_RADIUS + const.D_SAFE)
-            new_path = rrt.plan()
-            if new_path is not None: rrt_path = new_path
-            if rrt_path is None: print("RRT* failed to find a path, stopping."); break
-
-            # 3. Generate reference for NMPC and solve
+            # 2. Generate reference for NMPC and solve
             x_ref = generate_reference_trajectory(robot.state, rrt_path)
             u_optimal, x_predicted, h_dyn, h_stat = nmpc_solver(robot.state, x_ref, dynamic_obstacles, static_obstacles)
 
@@ -212,17 +213,17 @@ if __name__ == "__main__":
 
             robot.update_state(u_optimal, const.DT)
 
-            # 4. Check for collisions
+            # 3. Check for collisions
             collided, obs_type = check_collision(robot, dynamic_obstacles, static_obstacles)
             if collided:
                 print(f"Collision detected with a {obs_type} obstacle at timestep {t}. Halting simulation.")
                 break
 
-            # 5. Log data for this timestep
+            # 4. Log data for this timestep
             logger.log_timestep(t, robot, goal, dynamic_obstacles)
             control_history.append(u_optimal); h_dyn_history.append(min(h_dyn) if h_dyn else 0); h_stat_history.append(min(h_stat) if h_stat else 0)
 
-            # 6. Plotting
+            # 5. Plotting
             frame_path = f"frames/frame_{t:03d}.png"
             plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
                              x_predicted, rrt_path, control_history, h_dyn_history, h_stat_history, save_path=frame_path)

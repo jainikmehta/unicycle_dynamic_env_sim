@@ -8,8 +8,6 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
     # --- Decision variables ---
     X = opti.variable(5, const.N + 1) # State: [x, y, theta, v, w]
     U = opti.variable(2, const.N)     # Control: [a, alpha]
-    S_dyn = opti.variable(len(dynamic_obstacles), const.N + 1)
-    S_stat = opti.variable(len(static_obstacles), const.N + 1)
 
     # --- Parameters ---
     x0 = opti.parameter(5, 1)
@@ -21,7 +19,6 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         error = X[:2, k] - X_ref[:, k]
         cost += ca.mtimes([error.T, const.Q_path, error])
         cost += ca.mtimes([U[:, k].T, const.R, U[:, k]])
-    cost += const.SLACK_PENALTY * (ca.sumsqr(S_dyn) + ca.sumsqr(S_stat))
     opti.minimize(cost)
 
     # --- Dynamics constraints ---
@@ -54,13 +51,12 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
             h_sequence.append(h)
             h_values_dyn_expr.append(h)
 
-        # Apply constraints for this obstacle using slack variables
-        opti.subject_to(h_sequence[0] >= S_dyn[i, 0])
-        opti.subject_to(S_dyn[i, 0] >= 0)
+        # Apply hard constraints for this obstacle
+        opti.subject_to(h_sequence[0] >= 0)
         for k in range(1, const.N + 1):
-            opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= S_dyn[i, k])
-            opti.subject_to(S_dyn[i, k] >= 0)
-
+            opti.subject_to(h_sequence[k] >= 0)
+            # opti.subject_to(h_sequence[k] - (1 + const.CBF_GAMMA) * h_sequence[k-1] >= 0)
+            
     # Static obstacles
     for i, obs in enumerate(static_obstacles):
         h_sequence = []
@@ -71,12 +67,11 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
             h_sequence.append(h)
             h_values_stat_expr.append(h)
 
-        # Apply constraints for this obstacle using slack variables
-        opti.subject_to(h_sequence[0] >= S_stat[i, 0])
-        opti.subject_to(S_stat[i, 0] >= 0)
+        # Apply hard constraints for this obstacle
+        opti.subject_to(h_sequence[0] >= 0)
         for k in range(1, const.N + 1):
-            opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= S_stat[i, k])
-            opti.subject_to(S_stat[i, k] >= 0)
+            opti.subject_to(h_sequence[k] >= 0)
+            # opti.subject_to(h_sequence[k] - (1 + const.CBF_GAMMA) * h_sequence[k-1] >= 0)
 
     # --- Other constraints ---
     # State bounds
