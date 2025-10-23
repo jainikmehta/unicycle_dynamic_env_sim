@@ -9,7 +9,7 @@ class RRTStar:
             self.parent = None
             self.cost = 0.0
 
-    def __init__(self, start, goal, obstacles_static, bounds,
+    def __init__(self, start, goal, obstacles_static, obstacles_dynamic, bounds,
                  max_iter=500, step_size=2.0, search_radius=4.0, goal_sample_rate=0.1, safe_dist=3.0):
         self.start = self.Node(start)
         self.goal = self.Node(goal)
@@ -21,6 +21,9 @@ class RRTStar:
         self.safe_dist = safe_dist
 
         self.static_obs = obstacles_static
+        # --- MODIFICATION START ---
+        self.dynamic_obs = obstacles_dynamic
+        # --- MODIFICATION END ---
         self.node_list = [self.start]
 
     def plan(self):
@@ -134,6 +137,14 @@ class RRTStar:
                 if dx < 0 and dy < 0: return False # Inside
                 if np.sqrt(max(0, dx)**2 + max(0, dy)**2) < self.safe_dist:
                     return False
+        
+        # --- MODIFICATION START ---
+        # Dynamic obstacles (circles)
+        for obs in self.dynamic_obs:
+            dist = np.linalg.norm(p_new - obs.measured_state[:2])
+            if dist <= obs.radius + self.safe_dist:
+                return False
+        # --- MODIFICATION END ---
         return True
 
     @staticmethod

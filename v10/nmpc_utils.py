@@ -8,10 +8,6 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
     # --- Decision variables ---
     X = opti.variable(5, const.N + 1) # State: [x, y, theta, v, w]
     U = opti.variable(2, const.N)     # Control: [a, alpha]
-    # Add slack variables for dynamic and static obstacles
-    slack_dyn = opti.variable(len(dynamic_obstacles) * (const.N + 1), 1)
-    slack_stat = opti.variable(len(static_obstacles) * (const.N + 1), 1)
-
 
     # --- Parameters ---
     x0 = opti.parameter(5, 1)
@@ -24,10 +20,6 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         cost += ca.mtimes([error.T, const.Q_path, error])
         cost += ca.mtimes([U[:, k].T, const.R, U[:, k]])
     
-    # Add slack penalty to the cost
-    cost += const.SLACK_PENALTY * ca.sumsqr(slack_dyn)
-    cost += const.SLACK_PENALTY * ca.sumsqr(slack_stat)
-
     opti.minimize(cost)
 
     # --- Dynamics constraints ---
@@ -42,7 +34,7 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         opti.subject_to(X[3, k+1] == v + const.DT * a)
         opti.subject_to(X[4, k+1] == w + const.DT * alpha)
 
-    # --- CBF Constraints ---
+    # --- CBF Constraints (Hard Constraints) ---
     h_values_dyn_expr = []
     h_values_stat_expr = []
 
@@ -54,31 +46,39 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
             sigma_bound = obs.sigma_bounds[k]
             uncertainty_radius = sigma_bound * ca.sqrt(ca.trace(cov))
             effective_radius = obs.radius + uncertainty_radius
+            
             dist_sq = (X[0, k] - obs_pred_pos[0])**2 + (X[1, k] - obs_pred_pos[1])**2
             h = dist_sq - (const.ROBOT_RADIUS + effective_radius + const.D_SAFE)**2
             h_values_dyn_expr.append(h)
             
-            # Apply soft constraints
-            opti.subject_to(h >= slack_dyn[i*(const.N+1) + k])
+            # --- MODIFICATION START ---
+            # Apply hard constraints directly
+            opti.subject_to(h >= 0)
+            # --- MODIFICATION END ---
 
 
     # Static obstacles
     for i, obs in enumerate(static_obstacles):
         for k in range(const.N + 1):
-            dx = ca.fabs(X[0, k] - obs.center[0]) - obs.width / 2
-            dy = ca.fabs(X[1, k] - obs.center[1]) - obs.height / 2
-            h = (ca.fmax(0, dx))**2 + (ca.fmax(0, dy))**2 - (const.ROBOT_RADIUS + const.D_SAFE)**2
+            # Calculate signed distances to the rectangle's boundaries
+            dist_x = ca.fabs(X[0, k] - obs.center[0]) - obs.width / 2
+            dist_y = ca.fabs(X[1, k] - obs.center[1]) - obs.height / 2
+
+            # This term is the squared distance *outside* the rectangle's boundary
+            h_outside_sq = (ca.fmax(0, dist_x))**2 + (ca.fmax(0, dist_y))**2
+            
+            # This penalty term is active *inside* the rectangle to provide a gradient.
+            penalty_inside = ca.fmin(0, dist_x) + ca.fmin(0, dist_y)
+
+            # The robust h-function
+            h = h_outside_sq - (const.ROBOT_RADIUS + const.D_SAFE)**2 + penalty_inside
             h_values_stat_expr.append(h)
 
-            # Apply soft constraints
-            opti.subject_to(h >= slack_stat[i*(const.N+1) + k])
+            # Apply hard constraints directly
+            opti.subject_to(h >= 0)
 
 
     # --- Other constraints ---
-    # Non-negativity of slack variables
-    opti.subject_to(slack_dyn >= 0)
-    opti.subject_to(slack_stat >= 0)
-
     # State bounds
     opti.subject_to(opti.bounded(0, X[0, :], const.X_LIM))
     opti.subject_to(opti.bounded(0, X[1, :], const.Y_LIM))
@@ -89,11 +89,13 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
     opti.subject_to(opti.bounded(-const.MAX_LINEAR_ACCEL, U[0, :], const.MAX_LINEAR_ACCEL))
     opti.subject_to(opti.bounded(-const.MAX_ANGULAR_ACCEL, U[1, :], const.MAX_ANGULAR_ACCEL))
 
+    # Initial state constraint
     opti.subject_to(X[:, 0] == x0)
 
     # --- Solver setup ---
     opti.set_value(x0, robot_state); opti.set_value(X_ref, x_ref)
-    opts = {'ipopt.print_level': 0, 'print_time': 0, 'ipopt.sb': 'yes'}; opti.solver('ipopt', opts)
+    opts = {'ipopt.print_level': 0, 'print_time': 0, 'ipopt.sb': 'yes'}
+    opti.solver('ipopt', opts)
 
     try:
         sol = opti.solve()
