@@ -107,7 +107,7 @@ class StaticObstacle:
     def __init__(self, x, y, w, h):
         self.center = np.array([x, y]); self.width = w; self.height = h
 
-# --- Environment Setup (Unchanged) ---
+# --- Environment Setup ---
 def setup_environment(grid):
     static_obstacles = []
     for _ in range(const.L):
@@ -164,6 +164,84 @@ def check_collision(robot, dynamic_obstacles, static_obstacles):
 
     return False, None
 
+def check_path_crossing(rrt_path, dynamic_obstacles):
+    """Check if any dynamic obstacle's predicted path crosses the current RRT path."""
+    if rrt_path is None:
+        return True
+    
+    for obs in dynamic_obstacles:
+        for i in range(len(rrt_path) - 1):
+            path_start = rrt_path[i]
+            path_end = rrt_path[i + 1]
+            
+            for k in range(const.N + 1):
+                obs_pos = obs.predicted_path[:, k]
+                dist_to_segment = point_to_segment_distance(obs_pos, path_start, path_end)
+                
+                cov = obs.predicted_cov[k]
+                sigma_bound = obs.sigma_bounds[k]
+                uncertainty_radius = sigma_bound * np.sqrt(np.trace(cov))
+                effective_radius = obs.radius + uncertainty_radius
+                
+                if dist_to_segment < effective_radius + const.PATH_CROSSING_THRESHOLD:
+                    return True
+    
+    return False
+
+def point_to_segment_distance(point, seg_start, seg_end):
+    """Calculate the minimum distance from a point to a line segment."""
+    segment = seg_end - seg_start
+    segment_length_sq = np.dot(segment, segment)
+    
+    if segment_length_sq == 0:
+        return np.linalg.norm(point - seg_start)
+    
+    t = max(0, min(1, np.dot(point - seg_start, segment) / segment_length_sq))
+    projection = seg_start + t * segment
+    
+    return np.linalg.norm(point - projection)
+
+def check_min_h_values(robot_state, dynamic_obstacles, static_obstacles):
+    """Calculate minimum h-value from current robot position to all obstacles"""
+    min_h = float('inf')
+    
+    # Check dynamic obstacles
+    for obs in dynamic_obstacles:
+        dist = np.linalg.norm(robot_state[:2] - obs.measured_state[:2])
+        uncertainty_radius = obs.sigma_bounds[0] * np.sqrt(np.trace(obs.cov))
+        effective_radius = obs.radius + uncertainty_radius
+        h = dist - (const.ROBOT_RADIUS + effective_radius + const.D_SAFE)
+        min_h = min(min_h, h)
+    
+    # Check static obstacles
+    for obs in static_obstacles:
+        dist_x = abs(robot_state[0] - obs.center[0]) - obs.width / 2
+        dist_y = abs(robot_state[1] - obs.center[1]) - obs.height / 2
+        h_outside_sq = max(0, dist_x)**2 + max(0, dist_y)**2
+        penalty_inside = min(0, dist_x) + min(0, dist_y)
+        h = np.sqrt(h_outside_sq + 1e-8) - (const.ROBOT_RADIUS + const.D_SAFE) + penalty_inside
+        min_h = min(min_h, h)
+    
+    return min_h
+
+def plan_rrt_with_safety_margin(robot, goal, static_obstacles, dynamic_obstacles, conservative=False):
+    """Plan RRT* path with optional conservative safety margin"""
+    if conservative:
+        safe_dist = const.ROBOT_RADIUS + const.D_SAFE + const.CONSERVATIVE_SAFETY_MARGIN
+        print(f"Planning conservative RRT* with safety distance: {safe_dist:.2f}")
+    else:
+        safe_dist = const.ROBOT_RADIUS + const.D_SAFE
+        print(f"Planning normal RRT* with safety distance: {safe_dist:.2f}")
+    
+    rrt = RRTStar(start=robot.state[:2], goal=goal.state,
+                  obstacles_static=static_obstacles,
+                  obstacles_dynamic=dynamic_obstacles,
+                  bounds=[0, const.X_LIM, 0, const.Y_LIM],
+                  safe_dist=safe_dist,
+                  max_iter=1000 if conservative else 500)  # More iterations for conservative planning
+    
+    return rrt.plan()
+
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run NMPC simulation.")
     parser.add_argument('--seed', type=int, help='Seed for random number generator.')
@@ -184,7 +262,9 @@ if __name__ == "__main__":
         logger = DataLogger(f"log_{seed}_{random_suffix}.txt")
 
         control_history = []; h_dyn_history = []; h_stat_history = []
-        rrt_path = None # Initialize path
+        rrt_path = None
+        conservative_mode = False  # Track if we're in conservative mode
+        recovery_counter = 0  # Count timesteps since entering recovery mode
 
         for t in range(const.MAX_SIM_STEPS):
             print(f"--- Timestep {t} ---")
@@ -194,27 +274,65 @@ if __name__ == "__main__":
                 obs.update_state(const.DT, static_obstacles, const.X_LIM, const.Y_LIM)
                 obs.predict_future_path()
 
-            # --- MODIFICATION START ---
-            # 2. Re-plan with RRT* at every timestep
-            print("Planning with RRT*...")
-            rrt = RRTStar(start=robot.state[:2], goal=goal.state,
-                          obstacles_static=static_obstacles,
-                          obstacles_dynamic=dynamic_obstacles, # Pass dynamic obstacles
-                          bounds=[0, const.X_LIM, 0, const.Y_LIM],
-                          safe_dist=const.ROBOT_RADIUS + const.D_SAFE)
+            # 2. Check current minimum h-value
+            current_min_h = check_min_h_values(robot.state, dynamic_obstacles, static_obstacles)
+            print(f"Current min h-value: {current_min_h:.4f}")
+
+            # 3. Determine if we need recovery replanning
+            needs_recovery = current_min_h < const.H_RECOVERY_THRESHOLD
             
-            new_rrt_path = rrt.plan()
+            if needs_recovery and not conservative_mode:
+                print(f"⚠️  H-VALUE TOO LOW ({current_min_h:.4f} < {const.H_RECOVERY_THRESHOLD})! Entering RECOVERY MODE")
+                conservative_mode = True
+                recovery_counter = 0
+                
+                # Plan conservative path with larger safety margin
+                new_rrt_path = plan_rrt_with_safety_margin(robot, goal, static_obstacles, 
+                                                           dynamic_obstacles, conservative=True)
+                if new_rrt_path is not None:
+                    rrt_path = new_rrt_path
+                    print("✓ Conservative recovery path found")
+                elif rrt_path is None:
+                    raise Exception("Recovery RRT* failed to find initial path")
+                else:
+                    print("⚠️  Recovery RRT* failed, keeping old path")
+            
+            # 4. Check if we can exit recovery mode
+            if conservative_mode:
+                recovery_counter += 1
+                if current_min_h > const.H_NORMAL_THRESHOLD:
+                    print(f"✓ H-value recovered ({current_min_h:.4f} > {const.H_NORMAL_THRESHOLD}). Exiting recovery mode after {recovery_counter} steps")
+                    conservative_mode = False
+                    recovery_counter = 0
+                    
+                    # Replan with normal (faster) path
+                    new_rrt_path = plan_rrt_with_safety_margin(robot, goal, static_obstacles, 
+                                                               dynamic_obstacles, conservative=False)
+                    if new_rrt_path is not None:
+                        rrt_path = new_rrt_path
+                        print("✓ Switched back to normal (faster) path")
+                else:
+                    print(f"Still in recovery mode (step {recovery_counter}), min h = {current_min_h:.4f}")
 
-            # If planner succeeds, update the path. Otherwise, keep the old one.
-            if new_rrt_path is not None:
-                rrt_path = new_rrt_path
-            elif rrt_path is None:
-                # This happens if the very first planning attempt fails
-                raise Exception("RRT* failed to find an initial path.")
-            # --- MODIFICATION END ---
+            # 5. Regular replanning check (path crossing)
+            if not needs_recovery and not conservative_mode:
+                needs_replanning = check_path_crossing(rrt_path, dynamic_obstacles)
+                
+                if needs_replanning:
+                    print("Path crossing detected. Re-planning with RRT*...")
+                    new_rrt_path = plan_rrt_with_safety_margin(robot, goal, static_obstacles, 
+                                                               dynamic_obstacles, conservative=False)
+                    if new_rrt_path is not None:
+                        rrt_path = new_rrt_path
+                        print("RRT* replanning successful")
+                    elif rrt_path is None:
+                        raise Exception("RRT* failed to find an initial path")
+                    else:
+                        print("RRT* replanning failed, keeping old path")
+                else:
+                    print("No replanning needed, using existing path")
 
-
-            # 3. Generate reference for NMPC and solve
+            # 6. Generate reference for NMPC and solve
             x_ref = generate_reference_trajectory(robot.state, rrt_path)
             u_optimal, x_predicted, h_dyn, h_stat = nmpc_solver(robot.state, x_ref, dynamic_obstacles, static_obstacles)
 
@@ -224,17 +342,19 @@ if __name__ == "__main__":
 
             robot.update_state(u_optimal, const.DT)
 
-            # 4. Check for collisions
+            # 7. Check for collisions
             collided, obs_type = check_collision(robot, dynamic_obstacles, static_obstacles)
             if collided:
                 print(f"Collision detected with a {obs_type} obstacle at timestep {t}. Halting simulation.")
                 break
 
-            # 5. Log data for this timestep
+            # 8. Log data for this timestep
             logger.log_timestep(t, robot, goal, dynamic_obstacles)
-            control_history.append(u_optimal); h_dyn_history.append(min(h_dyn) if h_dyn else 0); h_stat_history.append(min(h_stat) if h_stat else 0)
+            control_history.append(u_optimal)
+            h_dyn_history.append(min(h_dyn) if h_dyn else 0)
+            h_stat_history.append(min(h_stat) if h_stat else 0)
 
-            # 6. Plotting
+            # 9. Plotting
             frame_path = f"frames/frame_{t:03d}.png"
             plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
                              x_predicted, rrt_path, control_history, h_dyn_history, h_stat_history, save_path=frame_path)

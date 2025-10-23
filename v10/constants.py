@@ -27,13 +27,18 @@ MAX_LINEAR_ACCEL = 5.0  # m/s^2
 MAX_ANGULAR_ACCEL = np.pi / 4  # rad/s^2
 
 # --- NMPC Parameters ---
-Q_path = np.diag([500.0, 500.0]) # Weights for path tracking error
-R = np.diag([0.1, 0.05])     # Weights for control input
-SLACK_PENALTY = 1
-D_SAFE = 1.5
-CBF_GAMMA = 0.0 # Damping factor for higher-order CBF constraint
+Q_path = np.diag([50.0, 50.0])    # Path tracking weight (reduced for smoother motion)
+R = np.diag([0.1, 0.05])          # Weights for control input
+D_SAFE = 1.0                       # Safety distance (reduced from 1.5 to allow more freedom)
+CBF_GAMMA = 1.0                    # Damping factor for higher-order CBF (increased for more conservative behavior)
 
 # --- Environment Parameters ---
 X_LIM = 50.0
 Y_LIM = 50.0
 GRID_RESOLUTION = 1.0
+
+# --- RRT* Replanning Parameters ---
+PATH_CROSSING_THRESHOLD = 2.0  # Distance threshold to check if obstacle crosses path
+H_RECOVERY_THRESHOLD = 0.3
+H_NORMAL_THRESHOLD = 1.0
+CONSERVATIVE_SAFETY_MARGIN = D_SAFE + 2.0
