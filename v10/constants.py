@@ -27,9 +27,9 @@ MAX_LINEAR_ACCEL = 5.0  # m/s^2
 MAX_ANGULAR_ACCEL = np.pi / 4  # rad/s^2
 
 # --- NMPC Parameters ---
-Q_path = np.diag([5.0, 5.0]) # Weights for path tracking error
+Q_path = np.diag([500.0, 500.0]) # Weights for path tracking error
 R = np.diag([0.1, 0.05])     # Weights for control input
-SLACK_PENALTY = 100
+SLACK_PENALTY = 1
 D_SAFE = 1.5
 CBF_GAMMA = 0.0 # Damping factor for higher-order CBF constraint
 

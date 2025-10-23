@@ -8,6 +8,10 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
     # --- Decision variables ---
     X = opti.variable(5, const.N + 1) # State: [x, y, theta, v, w]
     U = opti.variable(2, const.N)     # Control: [a, alpha]
+    # Add slack variables for dynamic and static obstacles
+    slack_dyn = opti.variable(len(dynamic_obstacles) * (const.N + 1), 1)
+    slack_stat = opti.variable(len(static_obstacles) * (const.N + 1), 1)
+
 
     # --- Parameters ---
     x0 = opti.parameter(5, 1)
@@ -19,6 +23,11 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         error = X[:2, k] - X_ref[:, k]
         cost += ca.mtimes([error.T, const.Q_path, error])
         cost += ca.mtimes([U[:, k].T, const.R, U[:, k]])
+    
+    # Add slack penalty to the cost
+    cost += const.SLACK_PENALTY * ca.sumsqr(slack_dyn)
+    cost += const.SLACK_PENALTY * ca.sumsqr(slack_stat)
+
     opti.minimize(cost)
 
     # --- Dynamics constraints ---
@@ -39,41 +48,37 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
 
     # Dynamic obstacles
     for i, obs in enumerate(dynamic_obstacles):
-        h_sequence = []
         for k in range(const.N + 1):
             obs_pred_pos = obs.predicted_path[:, k]
             cov = obs.predicted_cov[k]
             sigma_bound = obs.sigma_bounds[k]
-            uncertainty_radius = sigma_bound * ca.sqrt(ca.trace(cov)) # CORRECTED LINE
+            uncertainty_radius = sigma_bound * ca.sqrt(ca.trace(cov))
             effective_radius = obs.radius + uncertainty_radius
             dist_sq = (X[0, k] - obs_pred_pos[0])**2 + (X[1, k] - obs_pred_pos[1])**2
             h = dist_sq - (const.ROBOT_RADIUS + effective_radius + const.D_SAFE)**2
-            h_sequence.append(h)
             h_values_dyn_expr.append(h)
-
-        # Apply hard constraints for this obstacle
-        opti.subject_to(h_sequence[0] >= 0)
-        for k in range(1, const.N + 1):
-            opti.subject_to(h_sequence[k] >= 0)
-            # opti.subject_to(h_sequence[k] - (1 + const.CBF_GAMMA) * h_sequence[k-1] >= 0)
             
+            # Apply soft constraints
+            opti.subject_to(h >= slack_dyn[i*(const.N+1) + k])
+
+
     # Static obstacles
     for i, obs in enumerate(static_obstacles):
-        h_sequence = []
         for k in range(const.N + 1):
             dx = ca.fabs(X[0, k] - obs.center[0]) - obs.width / 2
             dy = ca.fabs(X[1, k] - obs.center[1]) - obs.height / 2
             h = (ca.fmax(0, dx))**2 + (ca.fmax(0, dy))**2 - (const.ROBOT_RADIUS + const.D_SAFE)**2
-            h_sequence.append(h)
             h_values_stat_expr.append(h)
 
-        # Apply hard constraints for this obstacle
-        opti.subject_to(h_sequence[0] >= 0)
-        for k in range(1, const.N + 1):
-            opti.subject_to(h_sequence[k] >= 0)
-            # opti.subject_to(h_sequence[k] - (1 + const.CBF_GAMMA) * h_sequence[k-1] >= 0)
+            # Apply soft constraints
+            opti.subject_to(h >= slack_stat[i*(const.N+1) + k])
+
 
     # --- Other constraints ---
+    # Non-negativity of slack variables
+    opti.subject_to(slack_dyn >= 0)
+    opti.subject_to(slack_stat >= 0)
+
     # State bounds
     opti.subject_to(opti.bounded(0, X[0, :], const.X_LIM))
     opti.subject_to(opti.bounded(0, X[1, :], const.Y_LIM))
