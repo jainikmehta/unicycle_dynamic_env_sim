@@ -31,7 +31,7 @@ Q_path = np.diag([1500.0, 1500.0]) # Weights for path tracking error
 R = np.diag([0.1, 0.05])     # Weights for control input
 SLACK_PENALTY = 200000
 D_SAFE = 1.0
-CBF_GAMMA = 0.7 # Damping factor for higher-order CBF constraint
+CBF_GAMMA = 0.9 # Damping factor for higher-order CBF constraint
 
 # --- Environment Parameters ---
 X_LIM = 50.0
