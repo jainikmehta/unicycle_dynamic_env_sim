@@ -21,15 +21,15 @@ SIGMA_BOUND_UPPER = 3.0
 GOAL_RADIUS = 1.5
 ROBOT_RADIUS = 1.0
 MIN_START_GOAL_DIST = 25.0
-MAX_LINEAR_VEL = 25.0
+MAX_LINEAR_VEL = 5.0
 MAX_ANGULAR_VEL = np.pi / 2
 MAX_LINEAR_ACCEL = 5.0  # m/s^2
-MAX_ANGULAR_ACCEL = np.pi / 4  # rad/s^2
+MAX_ANGULAR_ACCEL = np.pi / 2  # rad/s^2
 
 # --- NMPC Parameters ---
-Q_path = np.diag([1500.0, 1500.0]) # Weights for path tracking error
+Q_path = np.diag([0.5, 0.5]) # Weights for path tracking error
 R = np.diag([0.1, 0.05])     # Weights for control input
-SLACK_PENALTY = 200000
+SLACK_PENALTY = 50
 D_SAFE = 1.0
 CBF_GAMMA = 0.9 # Damping factor for higher-order CBF constraint
 
