@@ -2,7 +2,7 @@ import casadi as ca
 import numpy as np
 import constants as const
 
-def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
+def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles, initial_guess=None):
     # --- Decision variables ---
     X = ca.MX.sym('X', 5, const.N + 1)  # State: [x, y, theta, v, w]
     U = ca.MX.sym('U', 2, const.N)      # Control: [a, alpha]
@@ -180,44 +180,39 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
 
     solver = ca.nlpsol('solver', 'ipopt', nlp, opts)
 
-    # Better initial guess using reference trajectory from RRT*
-    x0_guess = np.zeros(opt_variables.shape[0])
-    
-    # Set initial state guess from reference trajectory
-    for k in range(const.N + 1):
-        if k == 0:
-            x0_guess[k*5:(k+1)*5] = robot_state
-        else:
-            # Use reference trajectory for position
-            x0_guess[k*5] = X_ref[0, k]      # x from RRT* path
-            x0_guess[k*5+1] = X_ref[1, k]    # y from RRT* path
-            x0_guess[k*5+2] = robot_state[2] # theta (keep current heading)
-            x0_guess[k*5+3] = 1.0            # v (small forward velocity)
-            x0_guess[k*5+4] = 0.0            # w (no angular velocity)
-    
-    # Initial guess for controls
-    control_start_idx = 5 * (const.N + 1)
-    for k in range(const.N):
-        x0_guess[control_start_idx + k*2] = 0.5      # Small forward acceleration
-        x0_guess[control_start_idx + k*2 + 1] = 0.0  # No angular acceleration
+    if initial_guess is None:
+        initial_guess = np.zeros(opt_variables.shape[0])
+        for k in range(const.N + 1):
+            if k == 0:
+                initial_guess[k*5:(k+1)*5] = robot_state
+            else:
+                initial_guess[k*5] = X_ref[0, k]
+                initial_guess[k*5+1] = X_ref[1, k]
+                initial_guess[k*5+2] = robot_state[2]
+                initial_guess[k*5+3] = 1.0
+                initial_guess[k*5+4] = 0.0
+        
+        # --- MODIFICATION START ---
+        # A better initial guess for controls to encourage forward motion
+        control_start_idx = 5 * (const.N + 1)
+        for k in range(const.N):
+            initial_guess[control_start_idx + k*2] = const.MAX_LINEAR_ACCEL / 2 # Strong initial forward acceleration
+            initial_guess[control_start_idx + k*2 + 1] = 0.0
+        # --- MODIFICATION END ---
     
     try:
-        sol = solver(x0=x0_guess, lbx=lbx, ubx=ubx, lbg=lbg, ubg=ubg)
+        sol = solver(x0=initial_guess, lbx=lbx, ubx=ubx, lbg=lbg, ubg=ubg)
         
-        # Check solver status
         stats = solver.stats()
         if not stats['success']:
             print(f"Solver warning: {stats['return_status']}")
-            return None, None, [], []
+            return None, None, [], [], None
         
-        # Extract solution
         w_opt = sol['x'].full().flatten()
         
-        # Reshape to get X and U
         X_sol = w_opt[:5*(const.N+1)].reshape((5, const.N+1), order='F')
         U_sol = w_opt[5*(const.N+1):].reshape((2, const.N), order='F')
         
-        # Evaluate h values
         h_dyn = []
         h_stat = []
         
@@ -231,8 +226,8 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
             h_val = float(h_func(w_opt))
             h_stat.append(h_val)
         
-        return U_sol[:, 0], X_sol, h_dyn, h_stat
+        return U_sol[:, 0], X_sol, h_dyn, h_stat, w_opt
         
     except Exception as e:
         print(f"Solver failed: {e}")
-        return None, None, [], []
+        return None, None, [], [], None

@@ -1,12 +1,12 @@
 import matplotlib.pyplot as plt
 import numpy as np
-from matplotlib.patches import Circle, Rectangle, Ellipse
+from matplotlib.patches import Circle, Rectangle
 import constants as const
 
 def plot_environment(robot, goal, static_obstacles, dynamic_obstacles, 
                      predicted_trajectory=None, rrt_path=None, 
                      control_history=None, h_dyn_history=None, h_stat_history=None, 
-                     save_path=None):
+                     intermediate_goal=None, save_path=None):
     fig = plt.figure(figsize=(18, 9))
     gs = fig.add_gridspec(2, 2, width_ratios=[2, 1])
 
@@ -14,10 +14,16 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
     ax1 = fig.add_subplot(gs[:, 0])
     ax1.set_xlim(0, const.X_LIM); ax1.set_ylim(0, const.Y_LIM)
     ax1.set_aspect('equal'); ax1.grid(True)
-    ax1.set_title('NMPC with RRT* Planner'); ax1.set_xlabel('X (m)'); ax1.set_ylabel('Y (m)')
+    ax1.set_title('NMPC with Smart Intermediate Goal'); ax1.set_xlabel('X (m)'); ax1.set_ylabel('Y (m)')
 
     if rrt_path is not None:
         ax1.plot(rrt_path[:, 0], rrt_path[:, 1], 'g--', lw=2, label='RRT* Path', zorder=7)
+
+    # --- MODIFICATION START ---
+    # Plot Intermediate Goal
+    if intermediate_goal is not None:
+        ax1.plot(intermediate_goal[0], intermediate_goal[1], 'y*', markersize=15, label='Intermediate Goal', zorder=11)
+    # --- MODIFICATION END ---
 
     for obs in static_obstacles:
         rect = Rectangle((obs.center[0]-obs.width/2, obs.center[1]-obs.height/2), obs.width, obs.height, color='gray', zorder=2)
@@ -27,7 +33,6 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
                            color='gray', ls='--', fill=False, zorder=1, alpha=0.5)
         ax1.add_patch(bubble)
     
-    # Use flags to add labels only once
     has_dyn_obs_labels = False
     for obs in dynamic_obstacles:
         x, y, theta = obs.measured_state
@@ -35,7 +40,6 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
         ax1.add_patch(circle)
         ax1.arrow(x, y, 1.5*np.cos(theta), 1.5*np.sin(theta), head_width=0.8, fc='red', ec='red', zorder=5)
 
-        # Plot obstacle trajectories
         true_traj = np.array(obs.true_trajectory)
         meas_traj = np.array(obs.measured_trajectory)
         ax1.plot(true_traj[:, 0], true_traj[:, 1], 'r-', lw=1.5, label='Actual Obs Path' if not has_dyn_obs_labels else "", zorder=6)
@@ -46,15 +50,12 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
         for i in plot_indices:
             if i < len(obs.predicted_path[0]):
                 cov = obs.predicted_cov[i]
-                
-                # Upper baseline bound (disk)
                 uncertainty_radius_upper = const.SIGMA_BOUND_UPPER * np.sqrt(np.trace(cov))
                 effective_radius_upper = obs.radius + uncertainty_radius_upper + const.D_SAFE
                 disk = Circle(obs.predicted_path[:, i], radius=effective_radius_upper, 
                               color='orange', fill=True, zorder=3, alpha=0.7 - (i*0.02))
                 ax1.add_patch(disk)
 
-                # Updated bound (solid black circle)
                 uncertainty_radius_updated = obs.sigma_bounds[i] * np.sqrt(np.trace(cov))
                 effective_radius_updated = obs.radius + uncertainty_radius_updated + const.D_SAFE
                 bubble = Circle(obs.predicted_path[:, i], radius=effective_radius_updated, 
@@ -73,7 +74,6 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
         ax1.plot(predicted_trajectory[0, :], predicted_trajectory[1, :], 'm--', lw=2, label='NMPC Prediction', zorder=9)
     ax1.legend()
 
-    # --- Control Input Plot ---
     ax2 = fig.add_subplot(gs[0, 1])
     if control_history:
         controls = np.array(control_history)
@@ -82,7 +82,6 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
         ax2.plot(time, controls[:, 1], label='Angular Accel.')
         ax2.set_title('Control Inputs vs. Time'); ax2.legend(); ax2.grid(True)
 
-    # --- CBF h-value Plot ---
     ax3 = fig.add_subplot(gs[1, 1])
     if h_dyn_history and h_stat_history:
         time = np.arange(len(h_dyn_history)) * const.DT
@@ -98,10 +97,3 @@ def plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
         plt.savefig(save_path, dpi=100); plt.close(fig)
     else:
         plt.show()
-
-def cov_to_ellipse(cov):
-    """Convert covariance matrix to ellipse parameters."""
-    eigenvals, eigenvecs = np.linalg.eig(cov)
-    angle = np.degrees(np.arctan2(*eigenvecs[:,0][::-1]))
-    width, height = 2 * np.sqrt(eigenvals)
-    return width, height, angle
