@@ -60,8 +60,7 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         # opti.subject_to(h_sequence[0] >= -S_dyn[i, 0])
         # opti.subject_to(S_dyn[i,0] >= 0)
         for k in range(1, const.N + 1):
-            opti.subject_to(h_sequence[k] >= 0)
-            # opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= 0)
+            opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= 0)
             # opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= -S_dyn[i, k])
             # opti.subject_to(S_dyn[i, k] >= 0)
             
@@ -71,7 +70,7 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         for k in range(const.N + 1):
             dx = ca.fabs(X[0, k] - obs.center[0]) - obs.width / 2
             dy = ca.fabs(X[1, k] - obs.center[1]) - obs.height / 2
-            h = (ca.fmax(0, dx))**2 + (ca.fmax(0, dy))**2 - (const.ROBOT_RADIUS + const.D_SAFE_STATIC)**2
+            h = (ca.fmax(0, dx))**2 + (ca.fmax(0, dy))**2 - (const.ROBOT_RADIUS + const.D_SAFE)**2
             h_sequence.append(h)
             h_values_stat_expr.append(h)
 
@@ -80,8 +79,7 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
         # opti.subject_to(h_sequence[0] >= -S_stat[i, 0])
         # opti.subject_to(S_stat[i,0] >= 0)
         for k in range(1, const.N + 1):
-            opti.subject_to(h_sequence[k] >= 0)
-            # opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= 0)
+            opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= 0)
             # opti.subject_to(h_sequence[k] - (1 - const.CBF_GAMMA) * h_sequence[k-1] >= -S_stat[i, k])
             # opti.subject_to(S_stat[i, k] >= 0)
 
@@ -100,7 +98,7 @@ def nmpc_solver(robot_state, x_ref, dynamic_obstacles, static_obstacles):
 
     # --- Solver setup ---
     opti.set_value(x0, robot_state); opti.set_value(X_ref, x_ref)
-    opts = {'ipopt.print_level': 0, 'print_time': 0, 'ipopt.sb': 'yes'}; opti.solver('ipopt', opts)
+    opts = {'ipopt.print_level': 0, 'print_time': 0, 'ipopt.sb': 'yes', 'ipopt.max_cpu_time': 20.0}; opti.solver('ipopt', opts)
 
     try:
         sol = opti.solve()

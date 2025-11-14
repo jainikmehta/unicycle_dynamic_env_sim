@@ -1,3 +1,10 @@
+"""Constants for the v11 unicycle dynamic environment simulation.
+
+This module centralizes tunable parameters used across the simulation
+including dynamics, NMPC, obstacle and environment settings. Keep values
+here in sync with the readme for reproducibility.
+"""
+
 import numpy as np
 
 # --- Simulation Parameters ---

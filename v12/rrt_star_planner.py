@@ -9,7 +9,7 @@ class RRTStar:
             self.parent = None
             self.cost = 0.0
 
-    def __init__(self, start, goal, obstacles_static, obstacles_dynamic, bounds,
+    def __init__(self, start, goal, obstacles_static, bounds,
                  max_iter=500, step_size=2.0, search_radius=4.0, goal_sample_rate=0.1, safe_dist=3.0):
         self.start = self.Node(start)
         self.goal = self.Node(goal)
@@ -21,7 +21,6 @@ class RRTStar:
         self.safe_dist = safe_dist
 
         self.static_obs = obstacles_static
-        self.dynamic_obs = obstacles_dynamic
         self.node_list = [self.start]
 
     def plan(self):
@@ -39,16 +38,16 @@ class RRTStar:
 
             if self.is_near_goal(self.node_list[-1]):
                 break
-
+        
         return self.generate_final_path()
 
     def steer(self, from_node, to_node):
         d, theta = self.calc_distance_and_angle(from_node, to_node)
-
+        
         new_node = self.Node(from_node.p)
         new_node.p[0] += min(self.step_size, d) * np.cos(theta)
         new_node.p[1] += min(self.step_size, d) * np.sin(theta)
-
+        
         new_node.parent = from_node
         new_node.cost = from_node.cost + self.line_cost(from_node, new_node)
         return new_node
@@ -66,7 +65,7 @@ class RRTStar:
             if cost < min_cost:
                 min_cost = cost
                 best_parent = near_node
-
+        
         new_node.parent = best_parent
         new_node.cost = min_cost
 
@@ -82,7 +81,7 @@ class RRTStar:
         last_node = self.get_best_goal_node()
         if last_node is None:
             return None
-
+        
         path = [self.goal.p]
         node = last_node
         while node.parent is not None:
@@ -116,7 +115,7 @@ class RRTStar:
         goal_nodes = [node for node in self.node_list if self.is_near_goal(node)]
         if not goal_nodes:
             return None
-
+        
         min_cost = float('inf')
         best_node = None
         for node in goal_nodes:
@@ -135,21 +134,7 @@ class RRTStar:
                 if dx < 0 and dy < 0: return False # Inside
                 if np.sqrt(max(0, dx)**2 + max(0, dy)**2) < self.safe_dist:
                     return False
-
-        # Dynamic obstacles (circles) and their predicted paths
-        for obs in self.dynamic_obs:
-            # Check against current position
-            dist = np.linalg.norm(p_new - obs.measured_state[:2])
-            if dist <= obs.radius + self.safe_dist:
-                return False
-            # Check against predicted path
-            for i in range(const.N + 1):
-                obs_pos = obs.predicted_path[:, i]
-                dist = np.linalg.norm(p_new - obs_pos)
-                if dist <= obs.radius + self.safe_dist:
-                    return False
         return True
-
 
     @staticmethod
     def line_cost(node1, node2):

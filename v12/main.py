@@ -21,7 +21,7 @@ class Robot:
         # u = [linear_acceleration, angular_acceleration]
         v = self.state[3]
         w = self.state[4]
-
+        
         # Update state using second-order dynamics
         self.state[0] += dt * v * np.cos(self.state[2])
         self.state[1] += dt * v * np.sin(self.state[2])
@@ -45,7 +45,7 @@ class DynamicObstacle:
         self.true_state = np.array([x, y, np.random.uniform(-np.pi, np.pi)])
         self.velocity = np.random.uniform(0.5, 2.0)
         self.radius = const.D_OBS_R
-
+        
         # Initialize uncertainty variables
         self.measured_state = self.true_state.copy()
         self.cov = np.diag([const.OBSTACLE_POS_NOISE_STD**2, const.OBSTACLE_POS_NOISE_STD**2])
@@ -69,7 +69,7 @@ class DynamicObstacle:
         # Update true state
         next_x = self.true_state[0] + dt * self.velocity * np.cos(self.true_state[2])
         next_y = self.true_state[1] + dt * self.velocity * np.sin(self.true_state[2])
-
+        
         # Wall and static obstacle collision logic for true state
         if not (self.radius < next_x < x_lim-self.radius and self.radius < next_y < y_lim-self.radius):
             self.true_state[2] += np.pi + np.random.uniform(-const.HEADING_NOISE_RANGE, const.HEADING_NOISE_RANGE)
@@ -81,10 +81,10 @@ class DynamicObstacle:
                 self.true_state[2] += np.pi + np.random.uniform(-const.HEADING_NOISE_RANGE, const.HEADING_NOISE_RANGE)
                 return
         self.true_state[0], self.true_state[1] = next_x, next_y
-
+        
         # Generate new measurement
         self.measure()
-
+        
         # Store history
         self.true_trajectory.append(self.true_state.copy())
         self.measured_trajectory.append(self.measured_state.copy())
@@ -94,11 +94,11 @@ class DynamicObstacle:
         self.predicted_path[:, 0] = self.measured_state[:2]
         self.predicted_cov[0] = self.cov
         self.sigma_bounds = np.random.uniform(const.SIGMA_BOUND_LOWER, const.SIGMA_BOUND_UPPER, const.N + 1)
-
+        
         for i in range(1, const.N + 1):
             self.predicted_path[0, i] = self.predicted_path[0, i-1] + const.DT * self.velocity * np.cos(self.measured_state[2])
             self.predicted_path[1, i] = self.predicted_path[1, i-1] + const.DT * self.velocity * np.sin(self.measured_state[2])
-
+            
             # Propagate uncertainty
             added_variance = const.UNCERTAINTY_GROWTH_RATE * (i * const.DT)
             self.predicted_cov[i] = self.cov + np.diag([added_variance, added_variance])
@@ -148,43 +148,21 @@ def generate_reference_trajectory(robot_state, path):
         idx = min(closest_idx + i, len(path) - 1)
         ref_path[:, i] = path[idx]
     return ref_path
-
+    
 def check_collision(robot, dynamic_obstacles, static_obstacles):
     # Check collision with dynamic obstacles
     for obs in dynamic_obstacles:
         if np.linalg.norm(robot.state[:2] - obs.true_state[:2]) < robot.radius + obs.radius:
             return True, "dynamic"
-
+            
     # Check collision with static obstacles
     for obs in static_obstacles:
         closest_x = np.clip(robot.state[0], obs.center[0] - obs.width/2, obs.center[0] + obs.width/2)
         closest_y = np.clip(robot.state[1], obs.center[1] - obs.height/2, obs.center[1] + obs.height/2)
         if np.linalg.norm(robot.state[:2] - np.array([closest_x, closest_y])) < robot.radius:
             return True, "static"
-
+            
     return False, None
-
-def is_path_safe(path, dynamic_obstacles, static_obstacles):
-    if path is None:
-        return False
-    for point in path:
-        # Check against static obstacles
-        for obs in static_obstacles:
-            dx = abs(point[0] - obs.center[0]) - obs.width / 2
-            dy = abs(point[1] - obs.center[1]) - obs.height / 2
-            if dx < const.D_SAFE and dy < const.D_SAFE:
-                if dx < 0 and dy < 0: return False # Inside
-                if np.sqrt(max(0, dx)**2 + max(0, dy)**2) < const.D_SAFE:
-                    return False
-        # Check against dynamic obstacles and their predicted paths
-        for obs in dynamic_obstacles:
-            for i in range(const.N + 1):
-                obs_pos = obs.predicted_path[:, i]
-                dist = np.linalg.norm(point - obs_pos)
-                if dist <= obs.radius + const.D_SAFE:
-                    return False
-    return True
-
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Run NMPC simulation.")
@@ -193,20 +171,20 @@ if __name__ == "__main__":
 
     seed = args.seed if args.seed is not None else random.randint(0, 10000)
     random.seed(seed); np.random.seed(seed)
-
+    
     print("--- Setting up Episode ---")
     if not os.path.exists('frames'): os.makedirs('frames')
-
+    
     try:
         grid = Grid(const.X_LIM, const.Y_LIM, const.GRID_RESOLUTION, border_width=2)
         robot, goal, static_obstacles, dynamic_obstacles = setup_environment(grid)
         print("Environment setup successful.")
-
+        
         random_suffix = random.randint(1000, 9999)
         logger = DataLogger(f"log_{seed}_{random_suffix}.txt")
 
         control_history = []; h_dyn_history = []; h_stat_history = []; rrt_path = None
-
+        
         for t in range(const.MAX_SIM_STEPS):
             print(f"--- Timestep {t} ---")
 
@@ -215,35 +193,28 @@ if __name__ == "__main__":
                 obs.update_state(const.DT, static_obstacles, const.X_LIM, const.Y_LIM)
                 obs.predict_future_path()
 
-            # 2. Plan with RRT* only if necessary
-            if not is_path_safe(rrt_path, dynamic_obstacles, static_obstacles):
-                print("RRT* path is unsafe, replanning...")
-                rrt = RRTStar(start=robot.state[:2], goal=goal.state,
-                              obstacles_static=static_obstacles,
-                              obstacles_dynamic=dynamic_obstacles,
-                              bounds=[0, const.X_LIM, 0, const.Y_LIM],
-                              safe_dist=const.ROBOT_RADIUS + const.D_SAFE)
-                new_path = rrt.plan()
-                if new_path is not None:
-                    rrt_path = new_path
-                else:
-                    print("RRT* failed to find a path, stopping.")
-                    break
-
-            if rrt_path is None:
-                print("No valid RRT* path. Halting.")
-                break
-
+            # 2. Plan with RRT*
+            print("Planning with RRT*...")
+            rrt = RRTStar(start=robot.state[:2], goal=goal.state,
+                          obstacles_static=static_obstacles,
+                          bounds=[0, const.X_LIM, 0, const.Y_LIM], safe_dist=const.ROBOT_RADIUS + const.D_SAFE)
+            new_path = rrt.plan()
+            if new_path is not None: rrt_path = new_path
+            if rrt_path is None: print("RRT* failed to find a path, stopping."); break
+            
             # 3. Generate reference for NMPC and solve
             x_ref = generate_reference_trajectory(robot.state, rrt_path)
             u_optimal, x_predicted, h_dyn, h_stat = nmpc_solver(robot.state, x_ref, dynamic_obstacles, static_obstacles)
 
             if u_optimal is None:
-                print("NMPC solver failed to find a solution. Halting simulation.")
-                break
-
+                # NMPC failed: apply zero control and continue (use fallbacks for predictions/constraints)
+                u_optimal = np.zeros(2)
+                x_predicted = np.tile(robot.state[:2].reshape(2, 1), (1, const.N + 1))
+                h_dyn = []
+                h_stat = []
+            
             robot.update_state(u_optimal, const.DT)
-
+            
             # 4. Check for collisions
             collided, obs_type = check_collision(robot, dynamic_obstacles, static_obstacles)
             if collided:
@@ -256,12 +227,12 @@ if __name__ == "__main__":
 
             # 6. Plotting
             frame_path = f"frames/frame_{t:03d}.png"
-            plot_environment(robot, goal, static_obstacles, dynamic_obstacles,
+            plot_environment(robot, goal, static_obstacles, dynamic_obstacles, 
                              x_predicted, rrt_path, control_history, h_dyn_history, h_stat_history, save_path=frame_path)
-
+            
             if np.linalg.norm(robot.state[:2] - goal.state) < goal.radius:
                 print(f"Goal reached at timestep {t}!"); break
-
+        
         logger.close()
         final_timestep = t
         print(f"\n--- Generating Animation ---"); print(f"Simulation Seed: {seed}")
@@ -271,3 +242,4 @@ if __name__ == "__main__":
 
     except Exception as e:
         print(f"An error occurred: {e}")
+

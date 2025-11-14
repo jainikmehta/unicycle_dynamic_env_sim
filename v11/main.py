@@ -13,7 +13,7 @@ import constants as const
 # --- Simulation Classes ---
 class Robot:
     def __init__(self, x, y, theta):
-        self.state = np.array([x, y, theta, 0.0, 0.0]) # state: [x, y, theta, v, w]
+        self.state = np.array([x, y, theta, 0.1, 0.0]) # state: [x, y, theta, v, w]
         self.radius = const.ROBOT_RADIUS
         self.trajectory = [self.state.copy()]
 
